@@ -30,5 +30,19 @@ public class Pruefungsleistung {
 		this.note=note;
 	}
 	
+	/**
+	 * getter für name der Veranstaltung
+	 */
+	public String getNameDerVeranstaltung(){
+		return nameDerVeranstaltung;
+	}
+	
+	/**
+	 * getter für die Note
+	 */
+	
+	public int getNote(){
+		return note;
+	}
 
 }

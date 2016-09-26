@@ -1,9 +1,4 @@
 package aufgabenblatt1;
-/**
-*
-*
-*
-*/
 
 /**
 * Praktikum TIPM2, WS16-17
