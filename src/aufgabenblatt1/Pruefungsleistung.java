@@ -40,7 +40,6 @@ public class Pruefungsleistung {
 	/**
 	 * getter für die Note
 	 */
-	
 	public int getNote(){
 		return note;
 	}
