@@ -84,6 +84,13 @@ public class Student implements Comparable<Student>{
 		return student1.compareTo(student2);
 	}
 	
+	@Override
+	public String toString(){
+		String ergebnis="";
+		ergebnis+=getVorname()+" "+getNachname()+" Matrikelnummer:"+getMatrikelnummer();
+		return ergebnis;
+	}
+	
 	
 	
 	

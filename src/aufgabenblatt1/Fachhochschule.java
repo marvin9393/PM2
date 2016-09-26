@@ -42,5 +42,31 @@ public class Fachhochschule {
 		studenten.add(student);
 	}
 	
+	/**
+	 * Sortiermethode über compareTo
+	 */
+	public void sortieren(){
+		for(int i=0;i<studenten.size();i++){
+			if(i+1<studenten.size()){
+				int vergleich=studenten.get(i).compareTo(studenten.get(i+1));
+				if(vergleich<0){
+					Student speicher=studenten.get(i);
+					studenten.set(i, studenten.get(i+1));
+					studenten.set(i+1, speicher);
+					i--;
+				}
+			}
+			
+		}
+	}
+	
+	/**
+	 * ausgeben der einzelnen Studenten in der Liste
+	 */
+	public void ausgeben(){
+		for(int i=0;i<studenten.size();i++){
+			System.out.println(studenten.get(i).toString());
+		}
+	}
 
 }
