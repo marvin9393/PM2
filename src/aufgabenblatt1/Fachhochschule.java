@@ -53,10 +53,15 @@ public class Fachhochschule{
 	 *Studenten sortieren nach Nachnamen
 	 */
 	public void sortierenNachname(){
-		Collections.sort(studenten, new StudentenNachNamenSortieren());
+		Collections.sort(studenten, new NachNachnamenSortieren());
 	}
 	
-	
+	/**
+	 * Studenten sortieren nach Vornamen
+	 */
+	public void sortierenVornamen(){
+		Collections.sort(studenten, new NachVornamenSortieren());;
+	}
 	/**
 	 * ausgeben der einzelnen Studenten in der Liste
 	 */

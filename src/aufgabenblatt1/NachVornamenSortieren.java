@@ -11,14 +11,14 @@ import java.util.*;
 * Sahin Tekes (sahin.tekes@haw-hamburg.de)
 * Aufgabe: Aufgabenblatt 1, Aufgabe 1.1
 * Verwendete Quellen: */
-public class StudentenNachNamenSortieren implements Comparator<Student>{
-	
+public class NachVornamenSortieren implements Comparator<Student>{
 	/**
 	 * Vergleich nach Vorname und nachname
 	 */
 	@Override
 	public int compare(Student student1, Student student2){
-		return student1.getNachname().compareTo(student2.getNachname());
+		return student1.getVorname().compareTo(student2.getVorname());
 	}
 
 }
+

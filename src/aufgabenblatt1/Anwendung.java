@@ -14,7 +14,7 @@ public class Anwendung {
 	
 	public static void main(String[] args){
 		Student s1=new Student("Marvin","Petersen");
-		Student s2=new Student("Max","Mustermann");
+		Student s2=new Student("Marvin","Mustermann");
 		Student s3=new Student("Sahin","Tekes");
 		Student s4=new Student("Appelin","Ahomas");
 		
@@ -24,6 +24,8 @@ public class Anwendung {
 		f1.sortierenMatrikelnummer();
 		f1.ausgeben();
 		f1.sortierenNachname();
+		f1.ausgeben();
+		f1.sortierenVornamen();
 		f1.ausgeben();
 		
 		
