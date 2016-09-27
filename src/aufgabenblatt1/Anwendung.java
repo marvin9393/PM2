@@ -14,8 +14,8 @@ package aufgabenblatt1;
 public class Anwendung {
 	
 	public static void main(String[] args){
-		Student s1=new Student("Marvin", "Petersen");
-		Student s2=new Student("Irina","Anders");
+		Student s1=new Student("Marvin","Petersen");
+		Student s2=new Student("Max","Mustermann");
 		Student s3=new Student("Sahin","Tekes");
 		
 		Fachhochschule f1=new Fachhochschule(s1,s2,s3);
