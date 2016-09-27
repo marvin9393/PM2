@@ -82,6 +82,7 @@ public class Student implements Comparable<Student>{
 		Integer student1=getMatrikelnummer();
 		Integer student2=andererStudent.getMatrikelnummer();
 		return student1.compareTo(student2);
+
 	}
 	
 	@Override
@@ -90,8 +91,5 @@ public class Student implements Comparable<Student>{
 		ergebnis+=getVorname()+" "+getNachname()+" Matrikelnummer:"+getMatrikelnummer();
 		return ergebnis;
 	}
-	
-	
-	
 	
 }

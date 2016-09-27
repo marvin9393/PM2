@@ -11,7 +11,7 @@ import java.util.*;
 * Sahin Tekes (sahin.tekes@haw-hamburg.de)
 * Aufgabe: Aufgabenblatt 1, Aufgabe 1.1
 * Verwendete Quellen: */
-public class Fachhochschule {
+public class Fachhochschule{
 	
 	/**
 	 * Statische Objektvariable zählt die Studenten
@@ -43,22 +43,19 @@ public class Fachhochschule {
 	}
 	
 	/**
-	 * Sortiermethode über compareTo
+	 * Sortieren nach Matrikelnummer
 	 */
-	public void sortieren(){
-		for(int i=0;i<studenten.size();i++){
-			if(i+1<studenten.size()){
-				int vergleich=studenten.get(i).compareTo(studenten.get(i+1));
-				if(vergleich<0){
-					Student speicher=studenten.get(i);
-					studenten.set(i, studenten.get(i+1));
-					studenten.set(i+1, speicher);
-					sortieren();
-				}
-			}
-			
-		}
+	public void sortierenMatrikelnummer(){
+		Collections.sort(studenten);
 	}
+	
+	/**
+	 *Studenten sortieren nach Nachnamen
+	 */
+	public void sortierenNachname(){
+		Collections.sort(studenten, new StudentenNachNamenSortieren());
+	}
+	
 	
 	/**
 	 * ausgeben der einzelnen Studenten in der Liste
@@ -68,5 +65,7 @@ public class Fachhochschule {
 			System.out.println(studenten.get(i).toString());
 		}
 	}
+	
+
 
 }
