@@ -53,7 +53,7 @@ public class Fachhochschule {
 					Student speicher=studenten.get(i);
 					studenten.set(i, studenten.get(i+1));
 					studenten.set(i+1, speicher);
-					i--;
+					sortieren();
 				}
 			}
 			
