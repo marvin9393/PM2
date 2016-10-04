@@ -37,8 +37,6 @@ public class Student implements Comparable<Student>{
 	public Student(String vorname, String nachname){
 		this.vorname=vorname;
 		this.nachname=nachname;
-		Fachhochschule.anzahlStudenten++;
-		matrikelnummer=Fachhochschule.anzahlStudenten;
 		pruefungsleistung= new LinkedList<Pruefungsleistung>(); //lernen
 	}
 	
@@ -61,6 +59,13 @@ public class Student implements Comparable<Student>{
 	 */
 	public int getMatrikelnummer(){
 		return matrikelnummer;
+	}
+	
+	/**
+	 *setter fuer Matrikelnummer 
+	 */
+	public void setMatrikelnummer(int matrikelnummer){
+		this.matrikelnummer=matrikelnummer;
 	}
 	
 	@Override

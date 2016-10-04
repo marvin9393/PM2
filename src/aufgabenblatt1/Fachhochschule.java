@@ -16,7 +16,7 @@ public class Fachhochschule{
 	/**
 	 * Statische Objektvariable zählt die Studenten
 	 */
-	public static int anzahlStudenten=0;
+	private int anzahlStudenten=0;
 	
 	/**
 	 * Liste der Studenten an der Fachhochschule
@@ -31,15 +31,25 @@ public class Fachhochschule{
 		studenten=new LinkedList<Student>();
 		for(int i=0;i<student.length;i++){
 			studenten.add(student[i]);
+			anzahlStudenten++;
+			student[i].setMatrikelnummer(anzahlStudenten);
 		}
 	}
 	
+	/**
+	 * Getter fuer anzahlStudenten
+	 */
+	public int getAnzahlStudentetn(){
+		return anzahlStudenten;
+	}
 	/**
 	 * Ein Student in die Liste hinzufügen
 	 * @param student
 	 */
 	public void studentHinzufuegen(Student student){
 		studenten.add(student);
+		anzahlStudenten++;
+		student.setMatrikelnummer(anzahlStudenten);
 	}
 	
 	/**
