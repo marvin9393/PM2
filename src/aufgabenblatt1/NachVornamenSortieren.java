@@ -17,7 +17,9 @@ public class NachVornamenSortieren implements Comparator<Student>{
 	 */
 	@Override
 	public int compare(Student student1, Student student2){
-		return student1.getVorname().compareTo(student2.getVorname());
+		String s1=student1.getVorname()+student1.getNachname();
+		String s2=student2.getVorname()+student2.getNachname();
+		return s1.compareTo(s2);
 	}
 
 }

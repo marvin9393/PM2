@@ -36,6 +36,9 @@ public class Fachhochschule{
 		}
 	}
 	
+	public Student getStudenten(int position){
+		return studenten.get(position);
+	}
 	/**
 	 * Getter fuer anzahlStudenten
 	 */
