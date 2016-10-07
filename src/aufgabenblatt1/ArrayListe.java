@@ -24,8 +24,23 @@ public class ArrayListe <T>{
 	 */
 	private Object[] elemente;
 	
-	public void hinzufuegen(T element){
-		
+	public ArrayListe(){
+		elemente=new Object[0];
 	}
+	
+	public int getAnzahlElemente(){
+		return anzahlElemente;
+	}
+	public void hinzufuegen(T element){
+		 Object[] elementeNeu=new Object[elemente.length+1];
+		 
+		 for(int i=0;i<elemente.length;i++){
+			 elementeNeu[i]=elemente[i];
+		 }
+		 elemente=elementeNeu;
+		 elemente[elemente.length-1]=element;
+		 anzahlElemente++;
+	}
+	
 
 }
