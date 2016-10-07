@@ -6,6 +6,9 @@
 package aufgabenblatt1;
 
 import java.util.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
 /**
 * Praktikum TIPM2, WS16-17
 * Gruppe: Marvin Petersen (marvin.petersen@haw-hamburg.de),
@@ -35,4 +38,7 @@ public class Sensoren {
 	public String getOrt(){
 		return ort;
 	}
+	
+	 DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+	
 }
