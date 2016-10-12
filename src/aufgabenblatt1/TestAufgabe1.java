@@ -34,7 +34,7 @@ public class TestAufgabe1 {
 		Student s3=new Student("Sahin","Tekes");
 		
 		Fachhochschule f1=new Fachhochschule(s1,s2,s3);
-		Student s4=new Student("Appelin","Ahomas");
+		Student s4=new Student("Appelin","Ahomas"); 
 		f1.studentHinzufuegen(s4);
 		assertEquals("Fehler beim Hinzufügen",f1.getAnzahlStudentetn(),4);
 		
@@ -69,6 +69,23 @@ public class TestAufgabe1 {
 		assertEquals("Fehler beim Sortieren vierte Stelle",f1.getStudenten(3),s3);
 		
 	}
+	@Test
+	public void testSortierenNachMatrikelnummer(){
+		Student s1=new Student("Marvin","Petersen");
+		Student s2=new Student("Marvin","Mustermann");
+		Student s3=new Student("Sahin","Tekes");
+		Student s4=new Student("Marvin","Murtermann");
+		
+		Fachhochschule f1=new Fachhochschule(s1,s2,s3,s4);
+		f1.sortierenNachname();
+		f1.sortierenMatrikelnummer();
+		assertEquals("Fehler beim Sortieren an erster Stelle",f1.getStudenten(0),s1);
+		assertEquals("Fehler beim Sortieren an zweiter Stelle",f1.getStudenten(1),s2);
+		assertEquals("Fehler beim Sortieren an dritter Stelle",f1.getStudenten(2),s3);
+		assertEquals("Fehler beim Sortieren an vierter Stelle",f1.getStudenten(3),s4);
+
+	}
+	
 	
 
 }
