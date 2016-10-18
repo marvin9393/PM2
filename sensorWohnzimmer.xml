@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE RootElement SYSTEM "/Users/marvinpetersen/Documents/workspace/PM2/bin/aufgabenblatt1/sensoren.dtd">
-<sensoren ort="Wohnzimmer">
-	<messung zeit="06.10.2016 13:51">
-		<messung temperatur="23">
-		</messung>
-	</messung>
-</sensoren>
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE RootElement SYSTEM "/Users/marvinpetersen/Documents/workspace/PM2/sensoren.dtd">
+<Sensoren ort="Wohnzimmer">
+	<messungen zeit="06.10.2016 13:51">
+		<messungen temperatur="23">
+		</messungen>
+	</messungen>
+</Sensoren>
