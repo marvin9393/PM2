@@ -74,7 +74,7 @@ public class Student implements Comparable<Student>{
 			return false;
 		}
 		Student andereStudent=(Student) anderesObject;
-		return (matrikelnummer==andereStudent.matrikelnummer);
+		return (hashCode()==andereStudent.hashCode());
 	}
 	
 	@Override
