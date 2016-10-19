@@ -5,6 +5,7 @@
 */
 package aufgabe1_2;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -24,7 +25,6 @@ import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.DocumentType;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -52,7 +52,7 @@ public class Sensor {
 	 */
 	public Sensor(){
 		id="";
-		messungen=new ArrayList();
+		messungen=new ArrayList<Messung>();
 	}
 	
 	/**
@@ -61,7 +61,7 @@ public class Sensor {
 	 */
 	public Sensor(String id){
 		this.id=id;
-		messungen=new ArrayList();
+		messungen=new ArrayList<Messung>();
 	}
 	
 	/**
