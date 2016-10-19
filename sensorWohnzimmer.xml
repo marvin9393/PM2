@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE RootElement SYSTEM "/Users/marvinpetersen/Documents/workspace/PM2/sensoren.dtd">
-<Sensoren ort="Wohnzimmer">
-	<messungen zeit="06.10.2016 13:51">
-		<messungen temperatur="23">
-		</messungen>
-	</messungen>
-</Sensoren>

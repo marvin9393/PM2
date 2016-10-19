@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!ELEMENT Sensoren (messung)*>
-<!ATTLIST sensoren ort CDATA #REQUIRED>
-<!ATTLIST messung temperatur CDATA #REQUIRED>
-<!ATTLIST messung zeit CDATA #REQUIRED>
