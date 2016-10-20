@@ -90,7 +90,10 @@ public class Sensor {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * Methode ließt aus einer Liste von Messungen die einzelnen Messungen aus und
+	 * speichert diese in einer XML Datei.
+	 */
 	public void xmlDateiSchreiben(){
 			try {
 				DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
