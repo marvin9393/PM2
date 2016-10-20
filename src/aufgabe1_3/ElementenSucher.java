@@ -11,12 +11,16 @@ package aufgabe1_3;
 * Sahin Tekes (sahin.tekes@haw-hamburg.de)
 * Aufgabe: Aufgabenblatt 1, Aufgabe 1.3
 * Verwendete Quellen: */
+
+/**
+ * Klasse ElementenSucher um herauszufinden, 
+ * ob es sich beim ersten Element in einer Liste um eine Zahl handelt.
+ * @author acc387
+ *
+ * @param <T>
+ */
 public class ElementenSucher <T> extends ArrayListe<Integer>{
-	
-	public ElementenSucher(Object[] elemente){
-		super();
-	}
-	
+		
 	/**
 	 * Schaut ob das erste Element ein Integer ist.
 	 * @param liste

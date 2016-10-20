@@ -47,7 +47,8 @@ public class Sensor {
 	private List<Messung> messungen;
 	
 	/**
-	 * Konstruktor zum lesen
+	 * Lesender-Konstruktor
+	 * Leerer String id wird beim Auslesen einer XML-Datei überschrieben
 	 * @param id
 	 */
 	public Sensor(){
@@ -56,7 +57,7 @@ public class Sensor {
 	}
 	
 	/**
-	 * Konstruktor zum schreiben einer XML
+	 * Schreibender-Konstruktor
 	 * @param id
 	 */
 	public Sensor(String id){
@@ -91,7 +92,7 @@ public class Sensor {
 		}
 	}
 	/**
-	 * Methode lieÃŸt aus einer Liste von Messungen die einzelnen Messungen aus und
+	 * Methode liest aus einer Liste von Messungen die einzelnen Messungen aus und
 	 * speichert diese in einer XML Datei.
 	 */
 	public void xmlDateiSchreiben(){
@@ -136,19 +137,24 @@ public class Sensor {
 			      StreamResult result = new StreamResult(
 			          new File("src/aufgabe1_2/Sensor_Out1.xml"));
 			      transformer.transform(source, result);
-
-				
 				
 			} catch (ParserConfigurationException|TransformerException e) {
 				e.printStackTrace();
 			}
-			
-			
 	}
 	
+	/**
+	 * Ergaenzt die messung-Liste um eine Messung
+	 * @param messung
+	 */
 	public void hinzufuegen(Messung messung){
 		messungen.add(messung);
 	}
+	
+	/**
+	 * Anwendung
+	 * @param args
+	 */
 	public static void main(String[] args){
 		Sensor sensor=new Sensor();
 		sensor.ausXmlLesen();

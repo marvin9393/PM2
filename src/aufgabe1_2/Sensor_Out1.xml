@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE Sensor SYSTEM "Sensor.dtd">
-<Sensor id="Schlafzimmmer">
-<Messung wert="100.0" zeitstempel="2016-10-20T00:31:45.044"/>
-<Messung wert="23.1234" zeitstempel="2016-10-20T00:31:45.046"/>
-</Sensor>

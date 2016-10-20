@@ -15,6 +15,11 @@ import java.util.Comparator;
 * Verwendete Quellen: */
 public class SortierenVorname implements Comparator<Student>{
 	
+	/**
+	 * Methode compare vergleicht zwei Studenten-Objekte anhand ihrer Vornamen.
+	 * Ist der Nachname gleich, so wird der Nachname verglichen.
+	 * Mögliche return-Werte= >0, ==0, <0
+	 */
 	public int compare(Student student1, Student student2){
 		String name1=student1.getVorname()+student1.getNachname();
 		String name2=student2.getVorname()+student2.getNachname();

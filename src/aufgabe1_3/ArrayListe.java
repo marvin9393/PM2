@@ -11,6 +11,14 @@ package aufgabe1_3;
 * Sahin Tekes (sahin.tekes@haw-hamburg.de)
 * Aufgabe: Aufgabenblatt 1, Aufgabe 1.3
 * Verwendete Quellen: */
+
+
+/**
+ * Implementierung einer eigenen ArrayListe mit einem generischen Datentyp 'T'
+ * @author acc387
+ *
+ * @param <T> generischer Datentyp
+ */
 public class ArrayListe <T extends Comparable<T>>{
 	
 	/**

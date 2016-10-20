@@ -73,6 +73,11 @@ public class Student implements Comparable<Student>{
 	public List<Pruefungsleistung> getPruefungsleistungen(){
 		return pruefungsleistungen;
 	}
+	
+	/**
+	 * Übernimmt irgendein Objekt und überprüft ob es sich um ein Student-Objekt handelt.
+	 * Prüft, ob zwei Studenten-Objekte gleich sind. 
+	 */
 	@Override
 	public boolean equals(Object anderesObject){
 		if(!(anderesObject instanceof Student)){
@@ -82,11 +87,18 @@ public class Student implements Comparable<Student>{
 		return (hashCode()==andererStudent.hashCode());
 	}
 	
+	/**
+	 * HashCode fungiert als eindeutige ID für einzelnen Studenten
+	 */
 	@Override
 	public int hashCode(){
 		return matrikelnummer;
 	}
 	
+	/**
+	 * Zwei Studenten-Objekte lassen sich anhand des HashCodes (Matrikelnr.) vergleichen.
+	 * Mögliche return-Werte: -1, 0, 1
+	 */
 	@Override
 	public int compareTo(Student andererStudent){
 		Integer student1=hashCode();
@@ -96,7 +108,7 @@ public class Student implements Comparable<Student>{
 	}
 	
 	/**
-	 * Hinzufeugen einer pruefungsleistung.
+	 * Hinzufeugen einer pruefungsleistung in die ArrayList
 	 * @param pruefungsleistung
 	 */
 	public void pruefungsleistungHinzufuegen(Pruefungsleistung pruefungsleistung){

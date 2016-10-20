@@ -27,15 +27,17 @@ public class Messung {
 	
 	/**
 	 * Konstruktor um die Messungen aus XML einzulesen
+	 * Parse von String zu je double und LocalDateTime, da es den Objektvar.typen entspricht
 	 */
 	public Messung(String stringWert, String stringZeitstempel){
-		stringWert=stringWert.replace(',','.');
+		stringWert=stringWert.replace(',' , '.');
 		this.wert=Double.parseDouble(stringWert);
 		this.zeitstempel=LocalDateTime.parse(stringZeitstempel);
 	}
 	
 	/**
 	 * Konstruktor um ein Objekt zu erzeugen ohne XML
+	 * wert wird als Parameter mitgegeben, zeitstempel wird bei Konst-Aufruf vom System vergeben
 	 * @param wert
 	 */
 	public Messung(double wert){
@@ -60,7 +62,8 @@ public class Messung {
 	}
 	
 	/**
-	 * getter fuer den Wert als String
+	 * Gleiche getter zum Schreiben einer XML-Datei. 
+	 * Konvertierung von double und LocalDateTime zu String.
 	 * @return
 	 */
 	public String getWertString(){
