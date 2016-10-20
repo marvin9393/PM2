@@ -19,15 +19,15 @@ package aufgabe1_3;
  *
  * @param <T>
  */
-public class ElementenSucher <T> extends ArrayListe<Integer>{
+public class ElementenSucher <T> extends ArrayListe<Number>{
 		
 	/**
-	 * Schaut ob das erste Element ein Integer ist.
+	 * Schaut ob das erste Element ein Number ist.
 	 * @param liste
 	 * @return
 	 */
 	public static boolean istErstesElementZahl(ArrayListe<?> liste){
-		if(liste.getElement(0) instanceof Integer){
+		if(liste.getElement(0) instanceof Number){
 			return true;
 		}
 		return false;

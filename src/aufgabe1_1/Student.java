@@ -66,12 +66,18 @@ public class Student implements Comparable<Student>{
 		return nachname;
 	}
 	
+		
+	
 	/**
 	 * Getter fuer die Liste der Pruefungsleistungen
 	 * @return
 	 */
 	public List<Pruefungsleistung> getPruefungsleistungen(){
-		return pruefungsleistungen;
+		List<Pruefungsleistung> pruefungsleistungKopie=new ArrayList<Pruefungsleistung>();
+		for(int i=0;i<pruefungsleistungen.size();i++){
+			pruefungsleistungKopie.add(pruefungsleistungen.get(i));
+		}
+		return pruefungsleistungKopie;
 	}
 	
 	/**
@@ -84,7 +90,8 @@ public class Student implements Comparable<Student>{
 			return false;
 		}
 		Student andererStudent=(Student) anderesObject;
-		return (hashCode()==andererStudent.hashCode());
+		
+		return matrikelnummer==andererStudent.matrikelnummer;
 	}
 	
 	/**
@@ -101,9 +108,9 @@ public class Student implements Comparable<Student>{
 	 */
 	@Override
 	public int compareTo(Student andererStudent){
-		Integer student1=hashCode();
-		Integer student2=andererStudent.hashCode();
-		
+		Integer student1=matrikelnummer;
+		Integer student2=andererStudent.matrikelnummer;
+
 		return student1.compareTo(student2);
 	}
 	

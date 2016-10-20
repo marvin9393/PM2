@@ -40,7 +40,7 @@ public class ArrayListe <T extends Comparable<T>>{
 	}
 	
 	/**
-	 * fügt ein element hinzu und vergroeßert das Array.
+	 * fuegt ein element hinzu und vergroessert das Array.
 	 * @param element
 	 */
 	public void hinzufuegen(T element){
@@ -65,7 +65,7 @@ public class ArrayListe <T extends Comparable<T>>{
 		return (T)elemente[index];
 	}
 	
-	/**
+	/*
 	 * loescht ein element und laesst die dahinterliegenden Elemente aufruecken
 	 * @param index
 	 */
@@ -81,7 +81,7 @@ public class ArrayListe <T extends Comparable<T>>{
 	}
 	
 	/**
-	 * entferne ein bestimmtes Element aus dem Array und setzte alle dahinterliegenden
+	 * entferne alle bestimmten Elemente aus dem Array und setzte alle dahinterliegenden
 	 * ein Platz nach vorne.
 	 * @param element
 	 */
@@ -121,13 +121,23 @@ public class ArrayListe <T extends Comparable<T>>{
 	/**
 	 * implementiert die Darstellung der Liste
 	 */
+//	public String toString(){
+//		String result="";
+//		for(int i=0;i<anzahlElemente-1;i++){
+//			result+=elemente[i]+", ";
+//		}
+//		result+=elemente[anzahlElemente-1];
+//		return result;
+//	}
+	
 	public String toString(){
-		String result="";
+		StringBuilder sb = new StringBuilder();
 		for(int i=0;i<anzahlElemente-1;i++){
-			result+=elemente[i]+", ";
+			sb.append(elemente[i]).append(", ");
 		}
-		result+=elemente[anzahlElemente-1];
-		return result;
+		sb.append(elemente[anzahlElemente-1]);
+		return sb.toString();
+		
 	}
 	
 	/**
@@ -136,7 +146,7 @@ public class ArrayListe <T extends Comparable<T>>{
 	 */
 	public T getKleinstesElement(){
 		T min = (T)elemente[0];
-		for(int i=0;i<anzahlElemente;i++){
+		for(int i=1;i<anzahlElemente;i++){
 			if(min.compareTo(getElement(i))>0){
 				min=(T) elemente[i];
 			}
