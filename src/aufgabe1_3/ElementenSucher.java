@@ -13,14 +13,20 @@ package aufgabe1_3;
 * Verwendete Quellen: */
 
 /**
- * Klasse ElementenSucher um herauszufinden, 
+ * Klasse ElementenSucher um herauszzufinden, 
  * ob es sich beim ersten Element in einer Liste um eine Zahl handelt.
  * @author acc387
  *
  * @param <T>
  */
-public class ElementenSucher <T> extends ArrayListe<Number>{
+
+public abstract class ElementenSucher <T> extends Number {
 		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Schaut ob das erste Element ein Number ist.
 	 * @param liste

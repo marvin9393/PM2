@@ -21,6 +21,7 @@ package aufgabe1_3;
  */
 public class ArrayListe <T extends Comparable<T>>{
 	
+	
 	/**
 	 * Objektvariable die die Anzahl der Elemente speichert
 	 */
@@ -58,6 +59,7 @@ public class ArrayListe <T extends Comparable<T>>{
 	 * @param index
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public T getElement(int index){
 		if(index>=anzahlElemente){
 			return null;
@@ -144,6 +146,7 @@ public class ArrayListe <T extends Comparable<T>>{
 	 * gibt uns das kleinste element in dem array zurueck.
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public T getKleinstesElement(){
 		T min = (T)elemente[0];
 		for(int i=1;i<anzahlElemente;i++){
