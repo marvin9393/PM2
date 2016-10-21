@@ -33,7 +33,9 @@ import org.xml.sax.SAXException;
 * Gruppe: Marvin Petersen (marvin.petersen@haw-hamburg.de),
 * Sahin Tekes (sahin.tekes@haw-hamburg.de)
 * Aufgabe: Aufgabenblatt 1, Aufgabe 1.2
-* Verwendete Quellen: */
+* Verwendete Quellen: http://www.xmlvalidation.com/ , YouTube: JavaWebAndMore ,
+* http://www.mkyong.com/tutorials/java-xml-tutorials/
+* */
 public class Sensor {
 	
 	/**
@@ -48,7 +50,7 @@ public class Sensor {
 	
 	/**
 	 * Lesender-Konstruktor
-	 * Leerer String id wird beim Auslesen einer XML-Datei überschrieben
+	 * Leerer String id wird beim Auslesen einer XML-Datei ï¿½berschrieben
 	 * @param id
 	 */
 	public Sensor(){

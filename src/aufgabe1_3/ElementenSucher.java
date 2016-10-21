@@ -10,7 +10,8 @@ package aufgabe1_3;
 * Gruppe: Marvin Petersen (marvin.petersen@haw-hamburg.de),
 * Sahin Tekes (sahin.tekes@haw-hamburg.de)
 * Aufgabe: Aufgabenblatt 1, Aufgabe 1.3
-* Verwendete Quellen: */
+* Quellen: http://tinyurl.com/hm92uay
+* */
 
 /**
  * Klasse ElementenSucher um herauszzufinden, 

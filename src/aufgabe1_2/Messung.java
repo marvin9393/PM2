@@ -12,7 +12,9 @@ import java.time.LocalDateTime;
 * Gruppe: Marvin Petersen (marvin.petersen@haw-hamburg.de),
 * Sahin Tekes (sahin.tekes@haw-hamburg.de)
 * Aufgabe: Aufgabenblatt 1, Aufgabe 1.2
-* Verwendete Quellen: */
+* Verwendete Quellen: http://www.xmlvalidation.com/ , YouTube: JavaWebAndMore ,
+* http://www.mkyong.com/tutorials/java-xml-tutorials/
+*  */
 public class Messung {
 	
 	/**
