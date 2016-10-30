@@ -11,7 +11,8 @@ package aufgabe2_1;
 * Sahin Tekes (sahin.tekes@haw-hamburg.de)
 * Aufgabe: Aufgabenblatt xx, Aufgabe xx
 * Verwendete Quellen: */
-public enum Operation {
-	ADDITION, SUBTRAKTION, MULTIPLIKATION, DIVISION
+public interface DoubleDoubleZuDouble {
+	
+	public Double werteAus(Double zahl1, Double zahl2);
 
 }
