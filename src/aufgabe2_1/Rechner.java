@@ -33,26 +33,31 @@ public class Rechner {
 		return zahl1 / zahl2;
 	};
 
-	private DoubleDoubleZuDouble multiplikation1 = (zahl1, zahl2) -> {return zahl1*zahl2;};
-	
-	private  DoubleDoubleZuDouble nullstelle=(zahl1,zahl2) -> {return (zahl2*-1)/zahl1;};
+	private DoubleDoubleZuDouble multiplikation1 = (zahl1, zahl2) -> {
+		return zahl1 * zahl2;
+	};
+
+	private DoubleDoubleZuDouble nullstelle = (zahl1, zahl2) -> {
+		return (zahl2 * -1) / zahl1;
+	};
+
 	public Rechner() {
 		operationen = new HashMap<Operation, BinaryOperator<Double>>();
 		operationen.put(Operation.ADDITION, addition);
 		operationen.put(Operation.SUBTRAKTION, subtraktion);
-		operationen.put(Operation.MULTIPLIKATION,multiplikation);
+		operationen.put(Operation.MULTIPLIKATION, multiplikation);
 		operationen.put(Operation.DIVISION, division);
-		}
+	}
 
 	public Double berechne(Operation operation, double zahl1, double zahl2) {
 		return operationen.get(operation).apply(zahl1, zahl2);
 	}
-	
-	public static void main(String [] args){
-		Rechner rechner =new Rechner();
+
+	public static void main(String[] args) {
+		Rechner rechner = new Rechner();
 		System.out.println(rechner.berechne(Operation.MULTIPLIKATION, 12, 11));
 		System.out.println(rechner.multiplikation1.werteAus(5.0, 5.0));
-		System.out.println(rechner.nullstelle.werteAus(3.0,2.0));
+		System.out.println(rechner.nullstelle.werteAus(3.0, 2.0));
 	}
 
 }
