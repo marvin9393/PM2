@@ -11,6 +11,8 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import com.sun.org.apache.xpath.internal.functions.Function;
+
 /**
 * Praktikum TIPM2, WS16-17
 * Gruppe: Marvin Petersen (marvin.petersen@haw-hamburg.de),
@@ -60,7 +62,18 @@ public class Streams {
 		Stream<String> woerterStream =stringArray.stream();
 		//Stream loescht alle null objekte.
 		Predicate<String>nichtNull=wort->(wort!=null);
-		woerterStream.filter(nichtNull).filter(wort->wort.startsWith(" ")&&wort.endsWith(" "));
+		Predicate<String>mehrAlsAcht=wort->(wort.length()>=8);
+		
+		woerterStream.filter(nichtNull)
+			.map(String::toUpperCase)
+			.map(String::trim)
+			.map(wort-> wort.replace("Ä","AE"))
+			.map(wort-> wort.replace("Ö","OE"))
+			.map(wort-> wort.replace("Ü","UE"))
+			.map(wort-> wort.replace("ß","SS"))
+			.map(wort->wort.length()>=8?wort.substring(0, 8):wort.toUpperCase())
+			.forEach(System.out::println);
+		
 		
 	}
 	public static void main(String[] args){
@@ -68,7 +81,6 @@ public class Streams {
 		
 		stream.fuehreaus(stream.benutzerEingabe());
 		stream.arbeiteMitStream();
-		
 	}
 	
 
