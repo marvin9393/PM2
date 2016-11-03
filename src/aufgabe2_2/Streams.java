@@ -8,6 +8,7 @@ package aufgabe2_2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 /**
@@ -57,9 +58,10 @@ public class Streams {
 
 	public void arbeiteMitStream(){
 		Stream<String> woerterStream =stringArray.stream();
+		//Stream loescht alle null objekte.
+		Predicate<String>nichtNull=wort->(wort!=null);
+		woerterStream.filter(nichtNull).filter(wort->wort.startsWith(" ")&&wort.endsWith(" "));
 		
-		
-		woerterStream.forEach(System.out::println);
 	}
 	public static void main(String[] args){
 		Streams stream =new Streams();
