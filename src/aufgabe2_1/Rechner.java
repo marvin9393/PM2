@@ -16,10 +16,9 @@ import javax.management.loading.PrivateClassLoader;
  * (marvin.petersen@haw-hamburg.de), Sahin Tekes (sahin.tekes@haw-hamburg.de)
  * Aufgabe: Aufgabenblatt 2, Aufgabe 2.1 Verwendete Quellen:
  */
-public class Rechner{
+public class Rechner {
 
 	private Map<Operation, BinaryOperator<Double>> operationen;
-	private Map<Operation, DoubleDoubleZuDouble> operationenDouble;
 
 	private BinaryOperator<Double> addition = (zahl1, zahl2) -> {
 		return zahl1 + zahl2;
@@ -34,11 +33,11 @@ public class Rechner{
 		return zahl1 / zahl2;
 	};
 
-	private DoubleDoubleZuDouble multiplikation1 = (zahl1, zahl2) -> {
+	public static DoubleDoubleZuDouble multiplikation1 = (zahl1, zahl2) -> {
 		return zahl1 * zahl2;
 	};
 
-	private DoubleDoubleZuDouble nullstelle = (zahl1, zahl2) -> {
+	public static DoubleDoubleZuDouble nullstelle = (zahl1, zahl2) -> {
 		return (zahl2 * -1) / zahl1;
 	};
 
@@ -48,22 +47,10 @@ public class Rechner{
 		operationen.put(Operation.SUBTRAKTION, subtraktion);
 		operationen.put(Operation.MULTIPLIKATION, multiplikation);
 		operationen.put(Operation.DIVISION, division);
-		
-		operationenDouble= new HashMap<Operation, DoubleDoubleZuDouble>();
-		operationenDouble.put(Operation.DMULTIPLIKATION, multiplikation1);
-		operationenDouble.put(Operation.NULLSTELLE, nullstelle);
-		
 	}
 
 	public Double berechne(Operation operation, double zahl1, double zahl2) {
 		return operationen.get(operation).apply(zahl1, zahl2);
-	}
-
-	public static void main(String[] args) {
-		Rechner rechner = new Rechner();
-		System.out.println(rechner.berechne(Operation.MULTIPLIKATION, 12, 11));
-		System.out.println(rechner.multiplikation1.werteAus(5.0, 5.0));
-		System.out.println(rechner.nullstelle.werteAus( 2.3, 3.0));
 	}
 
 }

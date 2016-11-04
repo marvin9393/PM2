@@ -11,6 +11,6 @@ package aufgabe2_1;
  * Aufgabe: Aufgabenblatt xx, Aufgabe xx Verwendete Quellen:
  */
 public enum Operation {
-	ADDITION, SUBTRAKTION, MULTIPLIKATION, DIVISION, DMULTIPLIKATION, NULLSTELLE
+	ADDITION, SUBTRAKTION, MULTIPLIKATION, DIVISION
 
 }
