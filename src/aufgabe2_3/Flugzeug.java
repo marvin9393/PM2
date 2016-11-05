@@ -1,55 +1,110 @@
 package aufgabe2_3;
+/**
+ * 
+* Praktikum TIPM2, WS16-17
+* Gruppe: Marvin Petersen (marvin.petersen@haw-hamburg.de),
+* Sahin Tekes (sahin.tekes@haw-hamburg.de)
+* Aufgabe: Aufgabenblatt 2, Aufgabe 2.3
+* Verwendete Quellen:
+ */
 
 public class Flugzeug extends Thread {
-
+	
+	/**
+	 * Objektvariable die eine Referenz auf ein flughafen speichert.
+	 */
 	private Flughafen flughafen;
+	
+	/**
+	 * Objektvariable die den Namen festlegt
+	 */
 	private String id;
 	
-	//strecke bsp 9
-	private int flugdauer;
+	/**
+	 *Objektvariable die die Flugdauer speichert
+	 */
+	private final int flugdauer;
 	
-	//aktuelle zeit beim erzeugen, erstes bei 0
-	private int startzeit;
+	/**
+	 * Objektvariable die die Zeit speichert
+	 */
+	private final int startzeit;
+	
+	/**
+	 * speichert den Status
+	 */
 	private Status status;
 	
-	//aktuelle zeit, bsp 0 - 9
+	/**
+	 * speichert die zeit die das flugzeug noch fliegen muss bis es den flughafen erreicht.
+	 */
 	private int zeit;
-
-	public Flugzeug(String id, int flugdauer, Flughafen flughafen, int zeit) {
-		this.id = id;
-		this.flugdauer = flugdauer;
-		this.flughafen = flughafen;
-		this.zeit = zeit;
-
-		status = Status.IM_FLUG;
+	/**
+	 * 
+	 * @param flughafen
+	 * @param id
+	 * @param flugdauer
+	 */
+	public Flugzeug(String id, int flugdauer, int startzeit){
+		this.id=id;
+		this.flugdauer=flugdauer;
+		this.startzeit=startzeit;
+		this.zeit=startzeit+flugdauer;
+		status=Status.IM_FLUG;
 	}
-
-	public void istGelandet() {
-		status = Status.GELANDET;
+	
+	public Flugzeug(Flughafen flughafen,String id, int flugdauer, int startzeit){
+		this.flughafen=flughafen;
+		this.flughafen=flughafen;
+		this.id=id;
+		this.flugdauer=flugdauer;
+		this.startzeit=startzeit;
+		this.zeit=startzeit+flugdauer;
+		status=Status.IM_FLUG;
 	}
-
-	public String toString() {
-		String details = "";
-		details += "Flugzeug " + id + "(" + status + ", Zeit bis Ziel: " + "??\n";
-		return details;
+	
+	/**
+	 * gibt uns zurück ob das flugzeug gelandet ist.
+	 * @return
+	 */
+	public boolean isGelandet(){
+		return status==Status.GELANDET;
 	}
-
-	public void setZeit(int zeit) {
-		this.zeit = zeit;
-	}
-
-	public boolean isGelandet() {
-		if (flugdauer >= zeit) {
-			istGelandet();
-			return true;
+	
+	/**
+	 * setzt den Status auf die Landung.
+	 */
+	public void istGelandet(){
+		if(zeit==0){
+			status=Status.GELANDET;
 		}
-		return false;
 	}
-
-	@Override
-	public void run() {
-		setZeit(zeit);
-
+	
+	public String toString(){
+		return "Flugzeug"+id+"("+status.toString()+", Zeit bis Ziel: "+zeit;
 	}
+	
+	public void setZeit(int zeit){
+		this.zeit=zeit;
+	}
+	
+	public void run(){
+		while(!isGelandet()){
+			setZeit(zeit-1);
+			istGelandet();
+			System.out.println(toString());
+		}
+	}
+	
+	public static void main(String[] args){
+		Flugzeug flugzeug=new Flugzeug("Air Berlin 112", 20, 0);
+		Flugzeug flugzeug1=new Flugzeug("Tui 1", 20, 0);
+		flugzeug.start();
+		flugzeug1.start();
+	}
+	
+	
+	
+
 
 }
