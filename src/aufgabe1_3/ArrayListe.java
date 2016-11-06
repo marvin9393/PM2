@@ -135,10 +135,10 @@ public class ArrayListe <T extends Comparable<T>>{
 	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
-		for(int i=0;i<anzahlElemente-1;i++){
+		for (int i = 0; i < anzahlElemente - 1; i++) {
 			sb.append(elemente[i]).append(", ");
 		}
-		sb.append(elemente[anzahlElemente-1]);
+		sb.append(elemente[anzahlElemente - 1]);
 		return sb.toString();
 		
 	}
