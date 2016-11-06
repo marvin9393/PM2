@@ -49,7 +49,7 @@ public class Flugzeug extends Thread {
 		this.id=id;
 		this.flugdauer=flugdauer;
 		this.startzeit=startzeit;
-		this.zeit=startzeit+flugdauer;
+		this.zeit=flugdauer;
 		status=Status.IM_FLUG;
 	}
 	
@@ -89,11 +89,9 @@ public class Flugzeug extends Thread {
 	}
 	
 	public void run(){
-		while(!isGelandet()){
 			setZeit(zeit-1);
 			istGelandet();
 			System.out.println(toString());
-		}
 	}
 	
 	//public static void main(String[] args){

@@ -25,7 +25,7 @@ public class Flughafen extends Thread{
 	
 	private Flugzeug erzeugeFlugezug(){
 		String anzahl=""+anzahlFlugzeuge;
-		Flugzeug flugzeug=new Flugzeug(anzahl, 100,zeit);
+		Flugzeug flugzeug=new Flugzeug(anzahl, 5,zeit);
 		flugzeuge.add(flugzeug);
 		anzahlFlugzeuge--;
 		return flugzeug;
@@ -49,7 +49,7 @@ public class Flughafen extends Thread{
 	}
 	
 	public static void main(String[] args){
-		Flughafen flughafen=new Flughafen(20);
+		Flughafen flughafen=new Flughafen(10);
 		flughafen.start();
 	}
 
