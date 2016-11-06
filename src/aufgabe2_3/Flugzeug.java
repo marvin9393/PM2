@@ -96,12 +96,12 @@ public class Flugzeug extends Thread {
 		}
 	}
 	
-	public static void main(String[] args){
-		Flugzeug flugzeug=new Flugzeug("Air Berlin 112", 20, 0);
-		Flugzeug flugzeug1=new Flugzeug("Tui 1", 20, 0);
-		flugzeug.start();
-		flugzeug1.start();
-	}
+	//public static void main(String[] args){
+		//Flugzeug flugzeug=new Flugzeug("Air Berlin 112", 20, 0);
+		//Flugzeug flugzeug1=new Flugzeug("Tui 1", 20, 0);
+		//flugzeug.start();
+		//flugzeug1.start();
+	//}
 	
 	
 	
