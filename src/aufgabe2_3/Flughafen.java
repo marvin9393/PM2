@@ -7,6 +7,7 @@ package aufgabe2_3;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 
 /**
 * Praktikum TIPM2, WS16-17
@@ -19,6 +20,8 @@ public class Flughafen extends Thread{
 	private int anzahlFlugzeuge;
 	private List<Flugzeug>flugzeuge;
 	private int zeit;
+	private boolean landebahnFrei=true;
+
 	
 	public Flughafen(int anzahlFlugzeuge){
 		this.anzahlFlugzeuge=anzahlFlugzeuge;
@@ -32,6 +35,9 @@ public class Flughafen extends Thread{
 		flugzeug.istGelandet();
 	}
 	
+	public boolean getIstLandebahnFrei(){
+		return landebahnFrei;
+	}
 	public void run(){
 		for(int i=0;i<anzahlFlugzeuge;i++){
 			flugzeuge.add(erzeugeFlugzeug(this, zeit));

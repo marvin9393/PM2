@@ -10,7 +10,7 @@ public class Flugzeug extends Thread {
 	private String id;
 	private int flugdauer;
 	private int startzeit;
-	private int zeit=1;
+	private int zeit;
 	private Status status;
 
 	public Flugzeug(String id, int flugdauer, Flughafen flughafen, int zeit) {
@@ -28,7 +28,7 @@ public class Flugzeug extends Thread {
 
 	public void run() {
 		while (!isGelandet()) {
-			istGelandet();
+			flughafen.landen(this);
 			try {
 				sleep(500);
 			} catch (InterruptedException e) {
@@ -38,8 +38,15 @@ public class Flugzeug extends Thread {
 
 	}
 
-	public void istGelandet() {
+	public synchronized void istGelandet() {
 		if (zeit == flugdauer + startzeit) {
+			if(!flughafen.getIstLandebahnFrei()){
+				try {
+					this.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
 			status = Status.IM_LANDEANFLUG;
 			try {
 				sleep(1500);
@@ -47,6 +54,7 @@ public class Flugzeug extends Thread {
 				e.printStackTrace();
 			}
 			status = Status.GELANDET;
+			this.notifyAll();
 
 		}
 	}
