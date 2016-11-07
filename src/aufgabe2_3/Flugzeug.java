@@ -78,31 +78,32 @@ public class Flugzeug extends Thread {
 	/**
 	 * setzt den Status auf die Landung.
 	 */
-	public void istGelandet() {
-		if (zeit <= 3) {
+	public void setStatus() {
+		if (status == Status.IM_FLUG && zeit <= 0) {
 			status = Status.IM_LANDEANFLUG;
-			if (zeit == 0) {
+			System.out.println(toString());
+			try {
+				sleep(1500);
 				status = Status.GELANDET;
+				System.out.println("-> Flugzeug gelandet: " + toString());
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
 	public String toString() {
 
-		StringBuilder sb = new StringBuilder();
-		sb.append("Flugzeug" + id + "(" + status.toString() + "), Zeit bis Ziel: " + zeit);
-		return sb.toString();
+		return "Flugzeug" + id + "(" + status.toString() + "), Zeit bis Ziel: " + zeit;
 	}
 
 	public void setZeit(int zeit) {
 		this.zeit = zeit;
 	}
 
+	@Override
 	public void run() {
-		istGelandet();
-		if (zeit >= 0) {
-			System.out.println(toString());
-		}
+		System.out.println(toString());
 		setZeit(zeit - 1);
 	}
 
