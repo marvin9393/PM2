@@ -10,7 +10,7 @@ public class Flugzeug extends Thread {
 	private String id;
 	private int flugdauer;
 	private int startzeit;
-	private int zeit;
+	private int zeit=1;
 	private Status status;
 
 	public Flugzeug(String id, int flugdauer, Flughafen flughafen, int zeit) {
@@ -52,7 +52,14 @@ public class Flugzeug extends Thread {
 	}
 
 	public String toString() {
-		return "Flugzeug" + id + "(" + status.toString() + ", Zeit bis Ziel: " + (startzeit + flugdauer - zeit);
+		if (startzeit == zeit) {
+			return "-> Neues Flugzeug erzeugt: Flugzeug " + id + " (" + status.toString() + ", Zeit bis Ziel: "
+					+ (startzeit + flugdauer - zeit) + ")";
+		} else if (isGelandet()) {
+			return "-> Flugzeug gelandet: Flugzeug " + id + " (" + status.toString() + ", Zeit bis Ziel: "
+					+ (startzeit + flugdauer - zeit) + ")";
+		}
+		return "Flugzeug " + id + " (" + status.toString() + ", Zeit bis Ziel: " + (startzeit + flugdauer - zeit) + ")";
 	}
 
 	public void setZeit(int zeit) {
