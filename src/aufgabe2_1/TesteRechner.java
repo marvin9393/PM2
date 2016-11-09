@@ -26,7 +26,7 @@ public class TesteRechner {
 	public void testeDoubleDoubleZuDouble() {
 
 		assertEquals("DoubleMultiplikation fehlgeschlagen",
-		    Rechner.multiplikation1.werteAus(5.0, 5.0), (Double) 25.0);		
+		    Rechner.multiplikationDouble.werteAus(5.0, 5.0), (Double) 25.0);		
 		
 		assertEquals("Nullstelle ermitteln fehlgeschlagen",
 				    Rechner.nullstelle.werteAus(2.0, 3.0), (Double) (-1.5));
