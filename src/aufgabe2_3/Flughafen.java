@@ -30,10 +30,6 @@ public class Flughafen extends Thread {
    */
   private int zeit;
 
-  /**
-   * "Schluessel" um Flugzeugen zu ermoeglichen alleine zu landen
-   */
-  private boolean istLandebahnFrei = true;
 
   /**
    * Konstruktor weist die Objektvariablen zu.
@@ -52,25 +48,17 @@ public class Flughafen extends Thread {
    * @param flugzeug
    */
   public synchronized void landen(Flugzeug flugzeug) {
-    if (istLandebahnFrei) {
       flugzeug.setLandeAnflug();
-      istLandebahnFrei = false;
       try {
         sleep(1500);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
       flugzeug.istGelandet();
-      istLandebahnFrei = true;
-      notifyAll();
-    } else {
-      try {
-        wait();
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
   }
+  
+
+    
 
   /**
    * Methode um Flugzeug-Objekte zu erzeugen mit Ausgabe
@@ -129,7 +117,7 @@ public class Flughafen extends Thread {
    * @param args
    */
   public static void main(String[] args) {
-    Flughafen flughafen = new Flughafen(2);
+    Flughafen flughafen = new Flughafen(4);
     flughafen.start();
   }
 

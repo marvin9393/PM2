@@ -20,9 +20,9 @@ import com.sun.org.apache.xpath.internal.functions.Function;
  */
 public class Streams {
 
-	/**
-	 * Objektvariable Varibale fuer die Liste vom Typ String
-	 */
+  /**
+   * Objektvariable Varibale fuer die Liste vom Typ String
+   */
   private List<String> stringArray;
 
   public Streams() {
@@ -32,33 +32,24 @@ public class Streams {
   }
 
   /**
-   * Methode um benutzerdefinierte Eingabe einzulesen
-   * 
-   * @return
-   */
-
-
-  /**
    * fuehrt benutzerEingabe() rekursiv aus und speichert die ergebnisse in der
    * liste
    * 
    * @param eingabe
    */
   public void fuehreaus() {
-	  Scanner scanner=new Scanner(System.in);
-	  String eingabe=scanner.nextLine();
-	  while(!eingabe.equals("/fertig")){
-		  
-		  if (eingabe.equals("null")) {
-		        stringArray.add(null);
-		  }else if(!eingabe.equals("/fertig")){
-			  stringArray.add(eingabe);
-		  }
-		
-	
-		  eingabe=scanner.nextLine();
-	  }
-	  scanner.close();
+    Scanner scanner = new Scanner(System.in);
+    String eingabe = scanner.nextLine();
+    while (!eingabe.equals("/fertig")) {
+
+      if (eingabe.equals("null")) {
+        stringArray.add(null);
+      } else if (!eingabe.equals("/fertig")) {
+        stringArray.add(eingabe);
+      }
+      eingabe = scanner.nextLine();
+    }
+    scanner.close();
   }
 
   /**
@@ -73,7 +64,8 @@ public class Streams {
 
     Predicate<String> nichtNull = wort -> (wort != null);
 
-    woerterStream.filter(nichtNull).map(String::toUpperCase).map(String::trim)
+    woerterStream.filter(nichtNull)
+        .map(String::toUpperCase).map(String::trim)
         .map(wort -> wort.replace("Ä", "AE"))
         .map(wort -> wort.replace("Ö", "OE"))
         .map(wort -> wort.replace("Ü", "UE"))
