@@ -4,7 +4,7 @@ package augabe3_1;
 public class Rangierbahnhof {
 
   /**
-   * feste Anzahl an Gleisen für den Bahnhof
+   * feste Anzahl an Gleisen fï¿½r den Bahnhof
    */
   private Zug[] gleisArray = new Zug[3];
 
@@ -12,9 +12,16 @@ public class Rangierbahnhof {
     for (int i = 0; i < gleisArray.length; i++) {
       if (gleisArray[i] == null) {
         gleisArray[i] = new Zug();
-        return i+1;
+        notifyAll();
+        return i+1;  
       }
     }
+    try {
+		wait();
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     return 0;
   }
 
@@ -22,10 +29,16 @@ public class Rangierbahnhof {
     for (int i = 0; i < gleisArray.length; i++) {
       if (gleisArray[i] != null) {
         gleisArray[i] = null;
-
+        notifyAll();
         return i+1;
       }
     }
+    try {
+		wait();
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     return 0;
   }
   
