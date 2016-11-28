@@ -20,6 +20,9 @@ import com.sun.org.apache.xpath.internal.functions.Function;
  */
 public class Streams {
 
+  /**
+   * Objektvariable Varibale fuer die Liste vom Typ String
+   */
   private List<String> stringArray;
 
   public Streams() {
@@ -29,32 +32,24 @@ public class Streams {
   }
 
   /**
-   * Methode um benutzerdefinierte Eingabe einzulesen
-   * 
-   * @return
-   */
-  private String benutzerEingabe() {
-    Scanner scanner = new Scanner(System.in);
-    return scanner.nextLine();
-  }
-
-  /**
    * fuehrt benutzerEingabe() rekursiv aus und speichert die ergebnisse in der
    * liste
    * 
    * @param eingabe
    */
-  public void fuehreaus(String eingabe) {
-    if (!(eingabe.equals("/fertig"))) {
+  public void fuehreaus() {
+    Scanner scanner = new Scanner(System.in);
+    String eingabe = scanner.nextLine();
+    while (!eingabe.equals("/fertig")) {
+
       if (eingabe.equals("null")) {
         stringArray.add(null);
-        fuehreaus(benutzerEingabe());
-      } else {
+      } else if (!eingabe.equals("/fertig")) {
         stringArray.add(eingabe);
-        fuehreaus(benutzerEingabe());
       }
-
+      eingabe = scanner.nextLine();
     }
+    scanner.close();
   }
 
   /**
@@ -69,7 +64,8 @@ public class Streams {
 
     Predicate<String> nichtNull = wort -> (wort != null);
 
-    woerterStream.filter(nichtNull).map(String::toUpperCase).map(String::trim)
+    woerterStream.filter(nichtNull)
+        .map(String::toUpperCase).map(String::trim)
         .map(wort -> wort.replace("ƒ", "AE"))
         .map(wort -> wort.replace("÷", "OE"))
         .map(wort -> wort.replace("‹", "UE"))
@@ -85,11 +81,7 @@ public class Streams {
    */
   public static void main(String[] args) {
     Streams stream = new Streams();
-    stream.fuehreaus("Eingabe");
-    stream.fuehreaus("√uﬂeres  ");
-    stream.fuehreaus("null");
-    stream.fuehreaus("Straﬂen-Feger");
-    stream.fuehreaus(" ein Haus");
+    stream.fuehreaus();
     stream.arbeiteMitStream();
   }
 
