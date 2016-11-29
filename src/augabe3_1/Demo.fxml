@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.3475298126064736" prefHeight="202.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <items>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="TOP_CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="29.0" prefWidth="200.0" text="Neuer Datensatz" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <HBox minWidth="-Infinity" prefHeight="100.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Alias" textAlignment="CENTER" />
+                        <TextField fx:id="textAlias" prefHeight="27.0" prefWidth="100.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Vorname" />
+                        <TextField fx:id="textVorname" prefHeight="27.0" prefWidth="100.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Nachname" />
+                        <TextField fx:id="textNachname" prefHeight="27.0" prefWidth="100.0" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="knopfNeuerDatensatz" alignment="CENTER" mnemonicParsing="false" onAction="#knopfNeuerDatensatzGedrueckt" text="Hinzufuegen" />
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <TableView fx:id="tabelle" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="spalteAlias" prefWidth="75.0" text="Alias">
+          	<cellValueFactory><PropertyValueFactory property="alias" /></cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="75.0" text="Vorname">
+          	<cellValueFactory><PropertyValueFactory property="vorname" /></cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="75.0" text="Nachname">
+			<cellValueFactory><PropertyValueFactory property="nachname" /></cellValueFactory>
+           </TableColumn>
+        </columns>
+      </TableView>
+   </items>
+</SplitPane>

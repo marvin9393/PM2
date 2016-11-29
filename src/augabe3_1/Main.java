@@ -1,8 +1,3 @@
-/**
-*
-*
-*
-*/
 package augabe3_1;
 
 import javafx.application.Application;
@@ -21,8 +16,8 @@ public class Main extends Application {
   public void start(Stage primaryStage) {
     try {
       BorderPane wurzel =
-          (BorderPane)FXMLLoader.load(getClass().getResource("./Demo.fxml"));
-      Scene scene = new Scene(wurzel, 400, 400);
+          (BorderPane)FXMLLoader.load(getClass().getResource("./GuiBahnhof.fxml"));
+      Scene scene = new Scene(wurzel, 800, 400);
       primaryStage.setScene(scene);
       primaryStage.show();
     } catch (Exception e) {
