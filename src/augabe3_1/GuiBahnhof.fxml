@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -10,68 +11,92 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="augabe3_1.Controller">
    <top>
-      <TextField alignment="TOP_CENTER" text="Hamburg Hauptbahnhof" BorderPane.alignment="CENTER" />
+      <TextField id="titel" alignment="TOP_CENTER" editable="false" text="urg Hauptbahnhof" BorderPane.alignment="CENTER" />
    </top>
    <bottom>
-      <TextField alignment="CENTER" text="PM2 Aufgabenblatt 3/ Sahin Tekes &amp; Marvin Petersen" BorderPane.alignment="CENTER" />
+      <TextField id="fusszeile" alignment="CENTER" editable="false" mouseTransparent="true" opacity="0.3" text="PM2 Aufgabenblatt 3/ Sahin Tekes &amp; Marvin Petersen" BorderPane.alignment="CENTER" />
    </bottom>
    <left>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox id="stationbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="station1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/17358034-Illustration-of-a-train-station-on-a-white-background-Stock-Vector.jpg" />
+                  <Image url="@station.jpg" />
                </image>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="station2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/17358034-Illustration-of-a-train-station-on-a-white-background-Stock-Vector.jpg" />
+                  <Image url="@station.jpg" />
                </image>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="station3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/17358034-Illustration-of-a-train-station-on-a-white-background-Stock-Vector.jpg" />
+                  <Image url="@station.jpg" />
                </image>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </ImageView>
          </children>
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox id="zugbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="zug1" fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/index.png" />
+                  <Image url="@zug.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="E_RESIZE" />
                </cursor>
                <VBox.margin>
-                  <Insets left="50.0" />
+                  <Insets left="140.0" top="50.0" />
                </VBox.margin>
             </ImageView>
-            <ImageView fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="zug2" fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/index.png" />
+                  <Image url="@zug.png" />
                </image>
+               <VBox.margin>
+                  <Insets left="140.0" />
+               </VBox.margin>
             </ImageView>
-            <ImageView fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="zug3" fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/index.png" />
+                  <Image url="@zug.png" />
                </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <VBox.margin>
+                  <Insets left="140.0" />
+               </VBox.margin>
             </ImageView>
          </children>
       </VBox>
    </center>
    <right>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView id="statistik" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
             <TableColumn prefWidth="75.0" text="Column X" />
         </columns>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets top="50.0" />
+         </BorderPane.margin>
       </TableView>
    </right>
 </BorderPane>

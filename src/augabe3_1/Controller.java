@@ -1,30 +1,43 @@
-/**
-*
-*
-*
-*/
-package augabe3_1;
+package kap08_guifx.scenebuilder;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import kap08_guifx.Datensatz;
+import kap08_guifx.Person;
 
 /**
-* Praktikum TIPM2, WS16-17
-* Gruppe: Marvin Petersen (marvin.petersen@haw-hamburg.de),
-* Sahin Tekes (sahin.tekes@haw-hamburg.de)
-* Aufgabe: Aufgabenblatt xx, Aufgabe xx
-* Verwendete Quellen: */
-public class Controller implements Initializable{
+ * Controller für Demo.fxml
+ * 
+ * @author Philipp Jenke
+ */
+public class Controller implements Initializable {
 
-	/* (non-Javadoc)
-	 * @see javafx.fxml.Initializable#initialize(java.net.URL, java.util.ResourceBundle)
-	 */
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-	}
+  @FXML
+  private TextField titel;
+
+  @FXML
+  private VBox stationbox;
+
+  @FXML
+  private VBox zugbox;
+
+  @FXML
+  private TextField fusszeile;
+
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    titel.setText("HBF");
+ }
 
 }
