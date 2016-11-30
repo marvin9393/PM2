@@ -1,6 +1,8 @@
 package augabe3_1;
 
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -13,7 +15,7 @@ import javafx.scene.image.ImageView;
  * 
  * @author Philipp Jenke
  */
-public class Controller implements Initializable {
+public class Controller implements Initializable,Observer {
 
   @FXML
   private TextArea konsole;
@@ -24,33 +26,39 @@ public class Controller implements Initializable {
   @FXML
   private ImageView gleis3;
 
+  Simulator s = new Simulator();
+  
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    Simulator s = new Simulator();
     s.getThread().start();
+    s.getBahnhof().addObserver(this);
     
-    if (s.getBahnhof().getZug(0) == null) {
-        gleis1.setOpacity((0.0));
-      
-    } else {
-      //erscheinen
-      for(double i=0;i<=10;i++){
-        gleis1.setOpacity((i/10));
-        System.out.println(gleis1.getOpacity());
-      }
-      //danach von rechts nach links?
-    }
-    if (s.getBahnhof().getZug(0) == null) {
-      gleis2.setOpacity(0.0);
-    } else {
-      gleis2.setOpacity(1.0);
-    }
-    if (s.getBahnhof().getZug(0) == null) {
-      gleis3.setOpacity(0.0);
-    } else {
-      gleis3.setOpacity(1.0);
-    }
+    
+   
 
   }
 
+/* (non-Javadoc)
+ * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+ */
+@Override
+public void update(Observable o, Object arg) {
+	 if (s.getBahnhof().getZug(0) == null) {
+	        gleis1.setOpacity((0.0));
+	      
+	    } else {
+	      gleis1.setOpacity(1);
+	    if (s.getBahnhof().getZug(1) == null) {
+	      gleis2.setOpacity(0.0);
+	    } else {
+	      gleis2.setOpacity(1.0);
+	    }
+	    if (s.getBahnhof().getZug(2) == null) {
+	      gleis3.setOpacity(0.0);
+	    } else {
+	      gleis3.setOpacity(1.0);
+	    }
+	
+}
+}
 }

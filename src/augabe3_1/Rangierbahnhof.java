@@ -1,7 +1,8 @@
 package augabe3_1;
 
+import java.util.Observable;
 
-public class Rangierbahnhof {
+public class Rangierbahnhof extends Observable{
 
   /**
    * feste Anzahl an Gleisen f�r den Bahnhof
@@ -12,6 +13,15 @@ public class Rangierbahnhof {
     for (int i = 0; i < gleisArray.length; i++) {
       if (gleisArray[i] == null) {
         gleisArray[i] = new Zug();
+        try {
+			Thread.sleep(1500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        setChanged();
+        notifyObservers();
+        
         notifyAll();
         return i+1;  
       }
@@ -29,6 +39,14 @@ public class Rangierbahnhof {
     for (int i = 0; i < gleisArray.length; i++) {
       if (gleisArray[i] != null) {
         gleisArray[i] = null;
+        try {
+			Thread.sleep(1500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        setChanged();
+        notifyObservers();
         notifyAll();
         return i+1;
       }
@@ -42,11 +60,7 @@ public class Rangierbahnhof {
     return 0;
   }
   
-  public static void main(String[] args) {
-    Rangierbahnhof bhf=new Rangierbahnhof();
-    Lokfuehrer fuehrer=new Lokfuehrer(bhf);
-    fuehrer.start();
-  }
+ 
   
   public Zug getZug(int i){
 	  if(i<=2){
