@@ -5,19 +5,17 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="augabe3_1.Controller">
+<BorderPane id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="augabe3_1.Controller">
    <top>
       <TextField id="titel" alignment="TOP_CENTER" editable="false" text="Hamburg Hauptbahnhof" BorderPane.alignment="CENTER" />
    </top>
-   <bottom>
-      <TextField id="fusszeile" alignment="CENTER" editable="false" mouseTransparent="true" opacity="0.3" text="PM2 Aufgabenblatt 3/ Sahin Tekes &amp; Marvin Petersen" BorderPane.alignment="CENTER" />
-   </bottom>
    <left>
       <VBox id="stationbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -99,4 +97,11 @@
          </BorderPane.margin>
       </TableView>
    </right>
+   <bottom>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <TextArea fx:id="konsole" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="137.0" prefWidth="640.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </bottom>
 </BorderPane>
