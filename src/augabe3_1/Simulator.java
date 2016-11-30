@@ -32,6 +32,10 @@ public class Simulator implements Runnable{
 		}
 		
 	}
+	
+	public Rangierbahnhof getBahnhof(){
+		return bf;
+	}
 
 	public Thread getThread(){
 		return thread;

@@ -47,5 +47,12 @@ public class Rangierbahnhof {
     Lokfuehrer fuehrer=new Lokfuehrer(bhf);
     fuehrer.start();
   }
+  
+  public Zug getZug(int i){
+	  if(i<=2){
+		  return gleisArray[i];
+		  }
+	  return null;
+  }
 
 }

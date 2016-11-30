@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="augabe3_1.Controller">
+<BorderPane id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="augabe3_1.Controller">
    <top>
-      <TextField id="titel" alignment="TOP_CENTER" editable="false" text="urg Hauptbahnhof" BorderPane.alignment="CENTER" />
+      <TextField id="titel" alignment="TOP_CENTER" editable="false" text="Hamburg Hauptbahnhof" BorderPane.alignment="CENTER" />
    </top>
    <bottom>
       <TextField id="fusszeile" alignment="CENTER" editable="false" mouseTransparent="true" opacity="0.3" text="PM2 Aufgabenblatt 3/ Sahin Tekes &amp; Marvin Petersen" BorderPane.alignment="CENTER" />
@@ -51,7 +51,7 @@
    <center>
       <VBox id="zugbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView id="zug1" fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="zug1" fx:id="gleis1" fitHeight="99.0" fitWidth="102.0" opacity="0.38" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@zug.png" />
                </image>
@@ -62,7 +62,7 @@
                   <Insets left="140.0" top="50.0" />
                </VBox.margin>
             </ImageView>
-            <ImageView id="zug2" fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="zug2" fx:id="gleis2" fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@zug.png" />
                </image>
@@ -70,7 +70,7 @@
                   <Insets left="140.0" />
                </VBox.margin>
             </ImageView>
-            <ImageView id="zug3" fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="zug3" fx:id="gleis3" fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@zug.png" />
                </image>
