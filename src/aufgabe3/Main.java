@@ -20,7 +20,7 @@ public class Main extends Application {
     try {
       BorderPane wurzel =
           (BorderPane)FXMLLoader.load(getClass().getResource("./GuiBahnhof.fxml"));
-      Scene scene = new Scene(wurzel, 800, 600);
+      Scene scene = new Scene(wurzel, 500, 500);
       primaryStage.setScene(scene);
       primaryStage.show();
     } catch (Exception e) {
