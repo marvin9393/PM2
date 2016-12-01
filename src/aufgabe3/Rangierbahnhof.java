@@ -1,4 +1,4 @@
-package augabe3_1;
+package aufgabe3;
 
 import java.util.Observable;
 
@@ -7,16 +7,20 @@ import java.util.Observable;
 * Praktikum TIPM2, WS16-17
 * Gruppe: Marvin Petersen (marvin.petersen@haw-hamburg.de),
 * Sahin Tekes (sahin.tekes@haw-hamburg.de)
-* Aufgabe: Aufgabenblatt 3, Aufgabe 
+* Aufgabe: Aufgabenblatt 3, Aufgabe3.1
 * Verwendete Quellen:
  */
 public class Rangierbahnhof extends Observable{
 
   /**
-   * feste Anzahl an Gleisen f�r den Bahnhof
+   * feste Anzahl an Gleisen fuer den Bahnhof
    */
   private Zug[] gleisArray = new Zug[3];
 
+  /**
+   * Da immer nur ein Zug einfahren darf, ist diese Methode synchronisiert
+   * @return
+   */
   public synchronized int einfahren() {
     for (int i = 0; i < gleisArray.length; i++) {
       if (gleisArray[i] == null) {
@@ -29,7 +33,6 @@ public class Rangierbahnhof extends Observable{
 		}
         setChanged();
         notifyObservers();
-        
         notifyAll();
         return i+1;  
       }
@@ -69,7 +72,11 @@ public class Rangierbahnhof extends Observable{
   }
   
  
-  
+  /**
+   * getter zug
+   * @param i
+   * @return
+   */
   public Zug getZug(int i){
 	  if(i<=2){
 		  return gleisArray[i];

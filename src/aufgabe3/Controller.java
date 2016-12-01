@@ -1,4 +1,4 @@
-package augabe3_1;
+package aufgabe3;
 
 import java.net.URL;
 import java.util.Observable;
@@ -21,8 +21,6 @@ import javafx.scene.image.ImageView;
 public class Controller implements Initializable,Observer {
 
   @FXML
-  private TextArea konsole;
-  @FXML
   private ImageView gleis1;
   @FXML
   private ImageView gleis2;
@@ -35,11 +33,7 @@ public class Controller implements Initializable,Observer {
   public void initialize(URL location, ResourceBundle resources) {
     s.getThread().start();
     s.getBahnhof().addObserver(this);
-    
-    
-   
-
-  }
+    }
 
 /* (non-Javadoc)
  * @see java.util.Observer#update(java.util.Observable, java.lang.Object)

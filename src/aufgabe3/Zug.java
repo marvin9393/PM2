@@ -1,4 +1,4 @@
-package augabe3_1;
+package aufgabe3;
 
 /**
  * 

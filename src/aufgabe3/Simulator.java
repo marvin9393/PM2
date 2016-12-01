@@ -3,7 +3,7 @@
 *
 *
 */
-package augabe3_1;
+package aufgabe3;
 
 /**
 * Praktikum TIPM2, WS16-17
@@ -40,8 +40,5 @@ public class Simulator implements Runnable{
 	public Thread getThread(){
 		return thread;
 	}
-	public static void main (String[] args){
-		Simulator s=new Simulator();
-		s.getThread().start();
-	}
+
 }
