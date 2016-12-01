@@ -7,9 +7,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
 /**
- * JavaFX-Application which used the Scene Builder to layout the components.
  * 
- * @author Philipp Jenke
+* Praktikum TIPM2, WS16-17
+* Gruppe: Marvin Petersen (marvin.petersen@haw-hamburg.de),
+* Sahin Tekes (sahin.tekes@haw-hamburg.de)
+* Aufgabe: Aufgabenblatt xx, Aufgabe xx
+* Verwendete Quellen:
  */
 public class Main extends Application {
   @Override

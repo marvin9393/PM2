@@ -11,9 +11,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 
 /**
- * Controller für Demo.fxml
  * 
- * @author Philipp Jenke
+* Praktikum TIPM2, WS16-17
+* Gruppe: Marvin Petersen (marvin.petersen@haw-hamburg.de),
+* Sahin Tekes (sahin.tekes@haw-hamburg.de)
+* Aufgabe: Aufgabenblatt 3, Aufgabe 3.4
+* Verwendete Quellen:
  */
 public class Controller implements Initializable,Observer {
 
@@ -48,17 +51,16 @@ public void update(Observable o, Object arg) {
 	      
 	    } else {
 	      gleis1.setOpacity(1);
-	    if (s.getBahnhof().getZug(1) == null) {
+	    }
+	 if (s.getBahnhof().getZug(1) == null) {
 	      gleis2.setOpacity(0.0);
 	    } else {
 	      gleis2.setOpacity(1.0);
 	    }
-	    if (s.getBahnhof().getZug(2) == null) {
+	 if (s.getBahnhof().getZug(2) == null) {
 	      gleis3.setOpacity(0.0);
-	    } else {
+	 } else {
 	      gleis3.setOpacity(1.0);
-	    }
-	
-}
+	 }
 }
 }

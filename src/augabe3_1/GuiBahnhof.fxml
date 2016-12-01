@@ -46,7 +46,7 @@
    <center>
       <VBox id="zugbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView id="zug1" fx:id="gleis1" fitHeight="99.0" fitWidth="102.0" opacity="0.38" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="zug1" fx:id="gleis1" fitHeight="99.0" fitWidth="102.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@zug.png" />
                </image>
@@ -57,7 +57,7 @@
                   <Insets left="140.0" top="50.0" />
                </VBox.margin>
             </ImageView>
-            <ImageView id="zug2" fx:id="gleis2" fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="zug2" fx:id="gleis2" fitHeight="99.0" fitWidth="102.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@zug.png" />
                </image>
@@ -65,7 +65,7 @@
                   <Insets left="140.0" />
                </VBox.margin>
             </ImageView>
-            <ImageView id="zug3" fx:id="gleis3" fitHeight="99.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="zug3" fx:id="gleis3" fitHeight="99.0" fitWidth="102.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@zug.png" />
                </image>
