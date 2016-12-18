@@ -44,7 +44,7 @@ public class BVCanvas extends Canvas implements Observer {
   public void zeichneSimulation() {
     GraphicsContext gc = getGraphicsContext2D();
     // Alles löschen
-    gc.setFill(Color.WHITE);
+    gc.setFill(Color.RED);
     gc.fillRect(0, 0, getWidth(), getHeight());
     // Vehikel zeichnen
     for (int i = 0; i < sim.getAnzahlVehike(); i++) {

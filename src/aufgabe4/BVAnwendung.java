@@ -6,9 +6,19 @@
 package aufgabe4;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import javax.security.auth.login.CredentialExpiredException;
+
+import com.sun.glass.events.MouseEvent;
+
 import aufgabe4.braitenbergvehikel.BVBewegungAbstossung;
 import aufgabe4.braitenbergvehikel.BVBewegungAttraktion;
 import aufgabe4.braitenbergvehikel.BVSimulation;
@@ -24,22 +34,36 @@ import aufgabe4.view.BVCanvas;
  */
 public class BVAnwendung extends Application {
 
+  @SuppressWarnings("static-access")
   @Override
   public void start(Stage primaryStage) {
     // Simulation zusammenstellen
     BVSimulation sim = erzeugeSimulationsszene();
 
     // Canvas setzen
-    BVCanvas canvas = new BVCanvas(600, 600, sim);
+    BVCanvas canvas = new BVCanvas(500, 600, sim);
+    
+    VBox vbox = new VBox();
+    CheckBox check = new CheckBox();
+    Button simbut=new Button();
+    
+    simbut.setText("Simuliere!");
+    
+    vbox.getChildren().add(0, check);
+    vbox.getChildren().add(0, simbut);
 
     canvas.zeichneSimulation();
 
     // Szenengraph aufbauen
     primaryStage.setTitle("Braitenberg-Vehikel!");
     BorderPane wurzel = new BorderPane();
-    wurzel.setCenter(canvas);
+    wurzel.setLeft(canvas);
+    wurzel.setRight(vbox);System.out.println(sim.getVehikel(0).getName());
 
-    primaryStage.setScene(new Scene(wurzel, 850, 600));
+
+
+    primaryStage.setScene(new Scene(wurzel, 800, 600));
+    
     primaryStage.show();
   }
 
