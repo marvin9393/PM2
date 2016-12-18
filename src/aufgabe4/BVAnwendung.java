@@ -6,12 +6,15 @@
 package aufgabe4;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -41,16 +44,31 @@ public class BVAnwendung extends Application {
     BVSimulation sim = erzeugeSimulationsszene();
 
     // Canvas setzen
-    BVCanvas canvas = new BVCanvas(500, 600, sim);
+    BVCanvas canvas = new BVCanvas(600, 600, sim);
     
-    VBox vbox = new VBox();
+    Pane pane = new Pane();
     CheckBox check = new CheckBox();
     Button simbut=new Button();
     
     simbut.setText("Simuliere!");
     
-    vbox.getChildren().add(0, check);
-    vbox.getChildren().add(0, simbut);
+    pane.getChildren().add(0, check);
+    pane.getChildren().add(0, simbut);
+    check.setLayoutX(71);
+    simbut.setOnAction(new EventHandler<ActionEvent>(){
+
+      @Override
+      public void handle(ActionEvent event) {
+        System.out.println(sim.getSignal());
+        sim.simulationsSchritt();
+        canvas.zeichneSimulation();
+      }
+      
+      
+    });
+    
+
+    
 
     canvas.zeichneSimulation();
 
@@ -58,7 +76,8 @@ public class BVAnwendung extends Application {
     primaryStage.setTitle("Braitenberg-Vehikel!");
     BorderPane wurzel = new BorderPane();
     wurzel.setLeft(canvas);
-    wurzel.setRight(vbox);System.out.println(sim.getVehikel(0).getName());
+    wurzel.setRight(pane);
+    System.out.println(sim.getVehikel(0).getName());
 
 
 
