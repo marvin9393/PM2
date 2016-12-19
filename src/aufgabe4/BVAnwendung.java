@@ -46,6 +46,10 @@ public class BVAnwendung extends Application {
     // Canvas setzen
     BVCanvas canvas = new BVCanvas(600, 600, sim);
     
+    for(int i=0;i<2;i++){
+      sim.getVehikel(i).addObserver(canvas);
+    }
+    
     Pane pane = new Pane();
     CheckBox check = new CheckBox();
     Button simbut=new Button();
@@ -61,6 +65,17 @@ public class BVAnwendung extends Application {
       public void handle(ActionEvent event) {
         System.out.println(sim.getSignal());
         sim.simulationsSchritt();
+        canvas.zeichneSimulation();
+      }
+      
+      
+    });
+    
+    check.setOnAction(new EventHandler<ActionEvent>(){
+
+      @Override
+      public void handle(ActionEvent event) {
+        sim.start();
         canvas.zeichneSimulation();
       }
       

@@ -10,7 +10,7 @@ import aufgabe4.braitenbergvehikel.BraitenbergVehikel.Richtung;
  * 
  * @author Philipp Jenke
  */
-public class BVSimulation {
+public class BVSimulation extends Thread{
 
   /**
    * Position des Signals.
@@ -24,6 +24,7 @@ public class BVSimulation {
       new ArrayList<BraitenbergVehikel>();
 
   public BVSimulation() {
+   
   }
 
   /**
@@ -80,5 +81,19 @@ public class BVSimulation {
 
   public void setSignal(double x, double y) {
     signal = new Vektor2(x, y);
+  }
+  
+  @Override
+  public void run(){
+    while(true){
+      simulationsSchritt();
+      try {
+        sleep(200);
+      } catch (InterruptedException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
+    
   }
 }
