@@ -148,6 +148,12 @@ public class BraitenbergVehikel extends Observable{
       position = position.addiere(rotationszentrum);
       orientierung = orientierung.rotiere(winkelBogenmass);
       orientierung.normieren();
+      
+      /**
+       * 4.2 Observer aller observables informieren das der Zustand sich verändert hat.
+       */
+      setChanged();
+      notifyObservers();
     }
   }
 

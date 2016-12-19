@@ -24,7 +24,6 @@ public class BVSimulation extends Thread{
       new ArrayList<BraitenbergVehikel>();
 
   public BVSimulation() {
-   
   }
 
   /**
@@ -84,16 +83,25 @@ public class BVSimulation extends Thread{
   }
   
   @Override
+  /**
+   * 4.1 Thread und run implementiert
+   */
   public void run(){
     while(true){
-      simulationsSchritt();
+      if(!isInterrupted()){
+        simulationsSchritt();
+      }
       try {
         sleep(200);
       } catch (InterruptedException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
       }
+      
+      
     }
+      
+     
     
   }
 }

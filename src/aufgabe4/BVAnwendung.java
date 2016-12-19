@@ -12,15 +12,11 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.security.auth.login.CredentialExpiredException;
 
-import com.sun.glass.events.MouseEvent;
 
 import aufgabe4.braitenbergvehikel.BVBewegungAbstossung;
 import aufgabe4.braitenbergvehikel.BVBewegungAttraktion;
@@ -37,7 +33,6 @@ import aufgabe4.view.BVCanvas;
  */
 public class BVAnwendung extends Application {
 
-  @SuppressWarnings("static-access")
   @Override
   public void start(Stage primaryStage) {
     // Simulation zusammenstellen
@@ -45,60 +40,84 @@ public class BVAnwendung extends Application {
 
     // Canvas setzen
     BVCanvas canvas = new BVCanvas(600, 600, sim);
-    
-    for(int i=0;i<2;i++){
-      sim.getVehikel(i).addObserver(canvas);
-    }
-    
-    Pane pane = new Pane();
-    CheckBox check = new CheckBox();
-    Button simbut=new Button();
-    
-    simbut.setText("Simuliere!");
-    
-    pane.getChildren().add(0, check);
-    pane.getChildren().add(0, simbut);
-    check.setLayoutX(71);
-    simbut.setOnAction(new EventHandler<ActionEvent>(){
-
-      @Override
-      public void handle(ActionEvent event) {
-        System.out.println(sim.getSignal());
-        sim.simulationsSchritt();
-        canvas.zeichneSimulation();
-      }
-      
-      
-    });
-    
-    check.setOnAction(new EventHandler<ActionEvent>(){
-
-      @Override
-      public void handle(ActionEvent event) {
-        sim.start();
-        canvas.zeichneSimulation();
-      }
-      
-      
-    });
-    
-
-    
 
     canvas.zeichneSimulation();
 
     // Szenengraph aufbauen
     primaryStage.setTitle("Braitenberg-Vehikel!");
     BorderPane wurzel = new BorderPane();
-    wurzel.setLeft(canvas);
-    wurzel.setRight(pane);
-    System.out.println(sim.getVehikel(0).getName());
+    wurzel.setCenter(canvas);
 
-
-
-    primaryStage.setScene(new Scene(wurzel, 800, 600));
-    
+    primaryStage.setScene(new Scene(wurzel, 850, 600));
     primaryStage.show();
+    
+    /**
+     * 4.1 Pane gesetzt und an der rechten seite der boarder pane hinzugefügt. 
+     */
+    Pane pane =new Pane();
+    wurzel.setRight(pane);
+    
+    /**
+     * 4.1 Button und checkbox gesetzt
+     */
+    Button simbut = new Button();
+    CheckBox check = new CheckBox();
+    
+    /**
+     * 4.1 Button und checkbox zur pane hinzugefügt.
+     */
+    pane.getChildren().add(simbut);
+    pane.getChildren().add(check);
+    
+    
+    /**
+     * 4.1 die checkbox runter gesetzt
+     */
+    check.setLayoutY(60);
+    
+    
+    /**
+     * 4.1 Text gesetzt
+     */
+    simbut.setText("Simuliere!");
+    check.setText("Simuliere");
+    
+    simbut.setOnAction(new EventHandler<ActionEvent>() {
+      
+      @Override
+      public void handle(ActionEvent event) {
+        sim.simulationsSchritt();
+        }
+    });
+    
+    /**
+     * 4.2 alle autos sagen wer der observer ist.
+     */
+    for(int i=0;i<sim.getAnzahlVehike();i++){
+      sim.getVehikel(i).addObserver(canvas);
+    }
+    check.setOnAction(new EventHandler<ActionEvent>() {
+
+      @SuppressWarnings("deprecation")
+      @Override
+      public void handle(ActionEvent event) {
+        if(!sim.isAlive()){
+          sim.start();
+        }
+        else{
+          if(!check.isSelected()){
+            sim.interrupt();
+            
+          }
+          
+        }
+        
+        
+      }
+      
+    });
+    
+    
   }
 
   /**
