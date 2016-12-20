@@ -12,6 +12,7 @@ import aufgabe4.braitenbergvehikel.BraitenbergVehikel.Richtung;
  */
 public class BVSimulation extends Thread{
 
+  public boolean isGedrueckt=false;
   /**
    * Position des Signals.
    */
@@ -88,20 +89,25 @@ public class BVSimulation extends Thread{
    */
   public void run(){
     while(true){
-      if(!isInterrupted()){
+      if(isGedrueckt){
         simulationsSchritt();
+        try {
+          sleep(200);
+        } catch (InterruptedException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
       }
-      try {
-        sleep(200);
-      } catch (InterruptedException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      }
+      
+      
+    }
+    
+    
       
       
     }
       
      
     
-  }
+  
 }

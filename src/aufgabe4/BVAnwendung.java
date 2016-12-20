@@ -6,6 +6,8 @@
 package aufgabe4;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -33,6 +35,8 @@ import aufgabe4.view.BVCanvas;
  */
 public class BVAnwendung extends Application {
 
+  
+  
   @Override
   public void start(Stage primaryStage) {
     // Simulation zusammenstellen
@@ -96,22 +100,26 @@ public class BVAnwendung extends Application {
     for(int i=0;i<sim.getAnzahlVehike();i++){
       sim.getVehikel(i).addObserver(canvas);
     }
-    check.setOnAction(new EventHandler<ActionEvent>() {
+    check.selectedProperty().addListener(new ChangeListener<Boolean>() {
 
-      @SuppressWarnings("deprecation")
       @Override
-      public void handle(ActionEvent event) {
+      public void changed(ObservableValue<? extends Boolean> observable,
+          Boolean oldValue, Boolean newValue) {
+        
         if(!sim.isAlive()){
           sim.start();
         }
-        else{
-          if(!check.isSelected()){
-            sim.interrupt();
-            
-          }
-          
+        if(newValue){
+          sim.isGedrueckt=true;
+          System.out.println(sim.isGedrueckt);
+        }
+        if(oldValue){
+          sim.isGedrueckt=false;
+          System.out.println(sim.isGedrueckt);
         }
         
+      
+      
         
       }
       
