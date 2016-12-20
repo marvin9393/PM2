@@ -102,6 +102,10 @@ public class BVAnwendung extends Application {
     }
     check.selectedProperty().addListener(new ChangeListener<Boolean>() {
 
+      /**
+       * 4.1 Hacken setzten und entfernen momentan beim erneuten setzten fehler beim ausführen läuft nicht weiter aber über den debug läuft er weiter. scheint sich
+       * auf die gui zu spielen.
+       */
       @Override
       public void changed(ObservableValue<? extends Boolean> observable,
           Boolean oldValue, Boolean newValue) {

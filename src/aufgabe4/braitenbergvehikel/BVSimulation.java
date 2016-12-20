@@ -12,6 +12,10 @@ import aufgabe4.braitenbergvehikel.BraitenbergVehikel.Richtung;
  */
 public class BVSimulation extends Thread{
 
+  /**
+   * 4.1 
+   * boolean zum isGedrückt damit wir ob der thread laufen darf oder nicht.
+   */
   public boolean isGedrueckt=false;
   /**
    * Position des Signals.
