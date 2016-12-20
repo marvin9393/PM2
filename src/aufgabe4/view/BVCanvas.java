@@ -21,6 +21,7 @@ import aufgabe4.braitenbergvehikel.Vektor2;
  */
 public class BVCanvas extends Canvas implements Observer {
 
+
   /**
    * Bild eines Vehikels. Achtung: Package mit dem Bild muss korrekt angegeben
    * werden.

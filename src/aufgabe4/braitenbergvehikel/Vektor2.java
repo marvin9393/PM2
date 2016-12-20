@@ -84,6 +84,11 @@ public class Vektor2 {
   public double x() {
     return koordinaten[0];
   }
+  
+  public void setXY(double x, double y){
+    koordinaten[0]=x;
+    koordinaten[1]=y;
+  } 
 
   public double y() {
     return koordinaten[1];

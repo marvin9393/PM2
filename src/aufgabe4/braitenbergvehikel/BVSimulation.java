@@ -16,12 +16,11 @@ public class BVSimulation extends Thread{
    * 4.1 
    * boolean zum isGedrückt damit wir ob der thread laufen darf oder nicht.
    */
-  public boolean isGedrueckt=false;
+//  public boolean isGedrueckt=false;
   /**
    * Position des Signals.
    */
   private Vektor2 signal = new Vektor2(150, 200);
-
   /**
    * Liste der zu simulierenden Vehikel
    */
@@ -87,27 +86,20 @@ public class BVSimulation extends Thread{
     signal = new Vektor2(x, y);
   }
   
+  @SuppressWarnings("deprecation")
   @Override
   /**
    * 4.1 Thread und run implementiert
    */
   public void run(){
-    while(true){
-      if(isGedrueckt){
         simulationsSchritt();
-        try {
-          sleep(200);
-        } catch (InterruptedException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-        }
+       try {
+        sleep(200);
+      } catch (InterruptedException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
       }
-      
-      
-    }
-    
-    
-      
+  
       
     }
       
