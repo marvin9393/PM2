@@ -74,7 +74,7 @@ public class BVAnwendung extends Application {
     /**
      * 4.3 eventhandler für die KomboBox
      */
-    EventHandler<ActionEvent> abstossen=new EventHandler<ActionEvent>(int index) {
+    EventHandler<ActionEvent> abstossen=new EventHandler<ActionEvent>() {
 
       @Override
       public void handle(ActionEvent event) {
