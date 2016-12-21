@@ -18,12 +18,11 @@ public class BVSimulation extends Observable implements Runnable{
    * 4.1 
    * boolean zum isGedrückt damit wir ob der thread laufen darf oder nicht.
    */
-  public boolean isGedrueckt=false;
+ public boolean isGedrueckt=false;
   /**
    * Position des Signals.
    */
   private Vektor2 signal = new Vektor2(150, 200);
-
   /**
    * Liste der zu simulierenden Vehikel
    */
@@ -93,6 +92,7 @@ public class BVSimulation extends Observable implements Runnable{
     notifyObservers();
     setChanged();
   }
+<<<<<<< HEAD
 
   /**
  * 4.1 Thread und run implementiert
@@ -107,10 +107,23 @@ public class BVSimulation extends Observable implements Runnable{
     // wieso geht es nicht wenn sleep in der if bedingung ist.
       try {
         Thread.sleep(200);
+=======
+  
+  @SuppressWarnings("deprecation")
+  @Override
+  /**
+   * 4.1 Thread und run implementiert
+   */
+  public void run(){
+        simulationsSchritt();
+       try {
+        sleep(200);
+>>>>>>> 33b574fc5c8b3e009048b612c3fd4ee36fc2fe63
       } catch (InterruptedException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
       }
+<<<<<<< HEAD
     }
     
   }
@@ -120,6 +133,9 @@ public class BVSimulation extends Observable implements Runnable{
     
     
       
+=======
+  
+>>>>>>> 33b574fc5c8b3e009048b612c3fd4ee36fc2fe63
       
     
       
