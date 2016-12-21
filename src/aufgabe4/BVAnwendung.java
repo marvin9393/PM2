@@ -93,21 +93,21 @@ public class BVAnwendung extends Application {
       }
     });
 
-    check.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    //check.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
-      @Override
-      public void handle(MouseEvent event) {
-        if (!sim.getVehikel(0).getPosition().equals(sim.getSignal())&&check.isSelected()) {
-          sim.start();
-          
-        } else{
-          sim.getVehikel(0).setPosition(sim.getVehikel(0).getPosition());
-          sim.getVehikel(1).setPosition(sim.getVehikel(1).getPosition());
-          
-        }
-      }
-
-    });
+//      @Override
+//      public void handle(MouseEvent event) {
+//        if (!sim.getVehikel(0).getPosition().equals(sim.getSignal())&&check.isSelected()) {
+//          sim.start();
+//          
+//        } else{
+//          sim.getVehikel(0).setPosition(sim.getVehikel(0).getPosition());
+//          sim.getVehikel(1).setPosition(sim.getVehikel(1).getPosition());
+//          
+//        }
+//      }
+//
+//    });
 
     /**
      * 4.2 alle autos sagen wer der observer ist.
@@ -115,36 +115,35 @@ public class BVAnwendung extends Application {
     for (int i = 0; i < sim.getAnzahlVehike(); i++) {
       sim.getVehikel(i).addObserver(canvas);
     }
-    // check.selectedProperty().addListener(new ChangeListener<Boolean>() {
-    //
-    // /**
-    // * 4.1 Hacken setzten und entfernen momentan beim erneuten setzten fehler
-    // beim ausführen läuft nicht weiter aber über den debug läuft er
-    // weiter. scheint sich
-    // * auf die gui zu spielen.
-    // */
-    // @Override
-    // public void changed(ObservableValue<? extends Boolean> observable,
-    // Boolean oldValue, Boolean newValue) {
-    //
-    // if(!sim.isAlive()){
-    // sim.start();
-    // }
-    // if(newValue){
-    // sim.isGedrueckt=true;
-    // System.out.println(sim.isGedrueckt);
-    // }
-    // if(oldValue){
-    // sim.isGedrueckt=false;
-    // System.out.println(sim.isGedrueckt);
-    // }
-    //
-    //
-    //
-    //
-    // }
-    //
-    // });
+     check.selectedProperty().addListener(new ChangeListener<Boolean>() {
+    
+     /**
+     * 4.1 Hacken setzten und entfernen momentan beim erneuten setzten fehler
+     beim ausführen läuft nicht weiter aber über den debug läuft er
+     weiter. scheint sich
+     * auf die gui zu spielen.
+     */
+     public void changed(ObservableValue<? extends Boolean> observable,
+     Boolean oldValue, Boolean newValue) {
+    
+     if(!sim.isAlive()){
+     sim.start();
+     }
+     if(newValue){
+     sim.isGedrueckt=true;
+     System.out.println(sim.isGedrueckt);
+     }
+     if(oldValue){
+     sim.isGedrueckt=false;
+     System.out.println(sim.isGedrueckt);
+     }
+    
+    
+    
+    
+     }
+    
+     });
 
   }
 
