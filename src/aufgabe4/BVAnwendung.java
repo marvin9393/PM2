@@ -15,26 +15,22 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-<<<<<<< HEAD
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-=======
 import javafx.scene.input.MouseEvent;
->>>>>>> 33b574fc5c8b3e009048b612c3fd4ee36fc2fe63
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-<<<<<<< HEAD
+
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import aufgabe4.braitenbergvehikel.BVBewegung;
-=======
+
 import com.sun.javafx.scene.paint.GradientUtils.Point;
 import com.sun.xml.internal.ws.server.provider.AsyncProviderInvokerTube.FiberResumer;
 
->>>>>>> 33b574fc5c8b3e009048b612c3fd4ee36fc2fe63
 import aufgabe4.braitenbergvehikel.BVBewegungAbstossung;
 import aufgabe4.braitenbergvehikel.BVBewegungAttraktion;
 import aufgabe4.braitenbergvehikel.BVSimulation;
@@ -50,12 +46,11 @@ import aufgabe4.view.BVCanvas;
  */
 public class BVAnwendung extends Application {
 
-<<<<<<< HEAD
+
    
   
   @SuppressWarnings({ "rawtypes", "unchecked" })
-=======
->>>>>>> 33b574fc5c8b3e009048b612c3fd4ee36fc2fe63
+
   @Override
   public void start(Stage primaryStage) {
     // Simulation zusammenstellen
@@ -85,15 +80,15 @@ public class BVAnwendung extends Application {
      */
     Button simbut = new Button();
     CheckBox check = new CheckBox();
-<<<<<<< HEAD
+
     
-   
-  
-    
-      
-    
+    /**
+     * Combobox und text array für eine for schleife
+     */
     ComboBox[] comboArray=new ComboBox[sim.getAnzahlVehike()];
     Text[] txt = new Text[sim.getAnzahlVehike()];
+    
+    
     /**
      * 4.3 Combo Boxen erstellen
      */
@@ -170,9 +165,7 @@ public class BVAnwendung extends Application {
     
    
     
-=======
 
->>>>>>> 33b574fc5c8b3e009048b612c3fd4ee36fc2fe63
     /**
      * 4.1 Button und checkbox zur pane hinzugefügt.
      */
@@ -220,7 +213,7 @@ public class BVAnwendung extends Application {
     for (int i = 0; i < sim.getAnzahlVehike(); i++) {
       sim.getVehikel(i).addObserver(canvas);
     }
-<<<<<<< HEAD
+
     
     /**
      * 4.2sim sagen das er vom canvas beobachtet wird
@@ -257,39 +250,15 @@ public class BVAnwendung extends Application {
       }
       
     });
-=======
-     check.selectedProperty().addListener(new ChangeListener<Boolean>() {
-    
-     /**
-     * 4.1 Hacken setzten und entfernen momentan beim erneuten setzten fehler
-     beim ausführen läuft nicht weiter aber über den debug läuft er
-     weiter. scheint sich
-     * auf die gui zu spielen.
-     */
-     public void changed(ObservableValue<? extends Boolean> observable,
-     Boolean oldValue, Boolean newValue) {
-    
-     if(!sim.isAlive()){
-     sim.start();
-     }
-     if(newValue){
-     sim.isGedrueckt=true;
-     System.out.println(sim.isGedrueckt);
-     }
-     if(oldValue){
-     sim.isGedrueckt=false;
-     System.out.println(sim.isGedrueckt);
-     }
->>>>>>> 33b574fc5c8b3e009048b612c3fd4ee36fc2fe63
-    
-    
-    
-    
-     }
-    
-     });
-
   }
+    
+   
+
+    
+    
+    
+    
+   
 
   /**
    * Erzeugt eine Simulationsszene zum Testen.
