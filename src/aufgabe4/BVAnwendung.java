@@ -250,6 +250,14 @@ public class BVAnwendung extends Application {
       }
       
     });
+    EventHandler<MouseEvent> mousevent =new EventHandler<MouseEvent>() {
+
+      @Override
+      public void handle(MouseEvent event) {
+    
+        
+      }
+    };
   }
     
    
