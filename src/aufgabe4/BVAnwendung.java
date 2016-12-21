@@ -14,11 +14,14 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import aufgabe4.braitenbergvehikel.BVBewegungAbstossung;
 import aufgabe4.braitenbergvehikel.BVBewegungAttraktion;
@@ -35,13 +38,14 @@ import aufgabe4.view.BVCanvas;
  */
 public class BVAnwendung extends Application {
 
+   
   
-  
+  @SuppressWarnings("rawtypes")
   @Override
   public void start(Stage primaryStage) {
     // Simulation zusammenstellen
     BVSimulation sim = erzeugeSimulationsszene();
-
+    Thread thread= new Thread(sim);
     // Canvas setzen
     BVCanvas canvas = new BVCanvas(600, 600, sim);
 
@@ -66,6 +70,52 @@ public class BVAnwendung extends Application {
      */
     Button simbut = new Button();
     CheckBox check = new CheckBox();
+    
+    /**
+     * 4.3 eventhandler für die KomboBox
+     */
+    EventHandler<ActionEvent> abstossen=new EventHandler<ActionEvent>(int index) {
+
+      @Override
+      public void handle(ActionEvent event) {
+        
+        sim.getVehikel(0).setBewegung(new BVBewegungAbstossung());
+      }
+      
+    };
+    ComboBox[] comboArray=new ComboBox[sim.getAnzahlVehike()];
+    Text[] txt = new Text[sim.getAnzahlVehike()];
+    /**
+     * 4.3 Combo Boxen erstellen
+     */
+    for(int i=0;i<sim.getAnzahlVehike();i++){
+      comboArray[i]=new ComboBox();
+      txt[i]=new Text();
+      pane.getChildren().add(comboArray[i]);
+      pane.getChildren().add(txt[i]);
+      txt[i].setLayoutX(-50);
+      txt[i].setText(sim.getVehikel(i).getName());
+      
+      comboArray[i].getItems().add(new BVBewegungAbstossung().getId());
+      comboArray[i].getItems().add(new BVBewegungAttraktion().getId());    
+      
+      
+      comboArray[i].setPromptText(sim.getVehikel(i).getBewegung().getId());
+      if(i==0){
+        txt[i].setLayoutY(100);
+        
+      
+      comboArray[i].setLayoutY(80);
+      }else{
+        txt[i].setLayoutY(txt[i-1].getLayoutY()+80);
+        
+        comboArray[i].setLayoutY(comboArray[i-1].getLayoutY()+80);
+        
+      }
+      
+      
+    }
+   
     
     /**
      * 4.1 Button und checkbox zur pane hinzugefügt.
@@ -100,6 +150,13 @@ public class BVAnwendung extends Application {
     for(int i=0;i<sim.getAnzahlVehike();i++){
       sim.getVehikel(i).addObserver(canvas);
     }
+    
+    /**
+     * 4.2sim sagen das er vom canvas beobachtet wird
+     */
+    sim.addObserver(canvas);
+    
+
     check.selectedProperty().addListener(new ChangeListener<Boolean>() {
 
       /**
@@ -109,9 +166,9 @@ public class BVAnwendung extends Application {
       @Override
       public void changed(ObservableValue<? extends Boolean> observable,
           Boolean oldValue, Boolean newValue) {
-        
-        if(!sim.isAlive()){
-          sim.start();
+        if(!thread.isAlive()){
+          thread.start();
+          
         }
         if(newValue){
           sim.isGedrueckt=true;
@@ -120,6 +177,7 @@ public class BVAnwendung extends Application {
         if(oldValue){
           sim.isGedrueckt=false;
           System.out.println(sim.isGedrueckt);
+          
         }
         
       

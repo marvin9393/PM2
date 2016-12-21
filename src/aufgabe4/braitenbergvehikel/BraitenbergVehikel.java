@@ -66,6 +66,7 @@ public class BraitenbergVehikel extends Observable{
     this.bewegung = bewegung;
     this.position = position;
     this.orientierung = orientierung;
+  
   }
 
   public BraitenbergVehikel(String name, BVBewegung bewegung) {

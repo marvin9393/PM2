@@ -2,6 +2,7 @@ package aufgabe4.braitenbergvehikel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import aufgabe4.braitenbergvehikel.BraitenbergVehikel.Richtung;
 
@@ -10,8 +11,9 @@ import aufgabe4.braitenbergvehikel.BraitenbergVehikel.Richtung;
  * 
  * @author Philipp Jenke
  */
-public class BVSimulation extends Thread{
+public class BVSimulation extends Observable implements Runnable{
 
+  
   /**
    * 4.1 
    * boolean zum isGedrückt damit wir ob der thread laufen darf oder nicht.
@@ -85,31 +87,41 @@ public class BVSimulation extends Thread{
 
   public void setSignal(double x, double y) {
     signal = new Vektor2(x, y);
+    /**
+     * informiert die Canvas über die veränderung des signals
+     */
+    notifyObservers();
+    setChanged();
+  }
+
+  /**
+ * 4.1 Thread und run implementiert
+ */
+  @Override
+  public void run() {
+    while(true){
+    if(isGedrueckt){
+      simulationsSchritt();
+      
+    }
+    // wieso geht es nicht wenn sleep in der if bedingung ist.
+      try {
+        Thread.sleep(200);
+      } catch (InterruptedException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
+    
   }
   
-  @Override
-  /**
-   * 4.1 Thread und run implementiert
-   */
-  public void run(){
-    while(true){
-      if(isGedrueckt){
-        simulationsSchritt();
-        try {
-          sleep(200);
-        } catch (InterruptedException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-        }
-      }
-      
-      
-    }
+
+
     
     
       
       
-    }
+    
       
      
     
