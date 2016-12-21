@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
+import aufgabe4.braitenbergvehikel.BVBewegung;
 import aufgabe4.braitenbergvehikel.BVBewegungAbstossung;
 import aufgabe4.braitenbergvehikel.BVBewegungAttraktion;
 import aufgabe4.braitenbergvehikel.BVSimulation;
@@ -40,7 +41,7 @@ public class BVAnwendung extends Application {
 
    
   
-  @SuppressWarnings("rawtypes")
+  @SuppressWarnings({ "rawtypes", "unchecked" })
   @Override
   public void start(Stage primaryStage) {
     // Simulation zusammenstellen
@@ -71,18 +72,11 @@ public class BVAnwendung extends Application {
     Button simbut = new Button();
     CheckBox check = new CheckBox();
     
-    /**
-     * 4.3 eventhandler für die KomboBox
-     */
-    EventHandler<ActionEvent> abstossen=new EventHandler<ActionEvent>() {
-
-      @Override
-      public void handle(ActionEvent event) {
-        
-        sim.getVehikel(0).setBewegung(new BVBewegungAbstossung());
-      }
+   
+  
+    
       
-    };
+    
     ComboBox[] comboArray=new ComboBox[sim.getAnzahlVehike()];
     Text[] txt = new Text[sim.getAnzahlVehike()];
     /**
@@ -112,9 +106,53 @@ public class BVAnwendung extends Application {
         comboArray[i].setLayoutY(comboArray[i-1].getLayoutY()+80);
         
       }
-      
-      
     }
+    
+    /**
+     * 4.3eventheandler für das erste auto
+     */
+    comboArray[0].setOnAction(new EventHandler<ActionEvent>() {
+
+      @Override
+      public void handle(ActionEvent event) {
+        if(comboArray[0].getValue().equals("ABSTOSSUNG")){
+          sim.getVehikel(0).setBewegung(new BVBewegungAbstossung());
+        }
+        else{
+          sim.getVehikel(0).setBewegung(new BVBewegungAttraktion());
+        }
+        
+        
+          
+        
+      }
+    });
+    
+    /**
+     * 4.3 eventhandler für das zweite auto
+     */
+    comboArray[1].setOnAction(new EventHandler<ActionEvent>() {
+
+      @Override
+      public void handle(ActionEvent event) {
+        if(comboArray[1].getValue().equals("ABSTOSSUNG")){
+          sim.getVehikel(1).setBewegung(new BVBewegungAbstossung());
+        }
+        else{
+          sim.getVehikel(1).setBewegung(new BVBewegungAttraktion());
+        }
+        
+        
+          
+        
+      }
+    });
+    
+    
+     
+     
+      
+    
    
     
     /**
