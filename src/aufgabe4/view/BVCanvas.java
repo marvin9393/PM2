@@ -9,6 +9,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import aufgabe4.braitenbergvehikel.BVSimulation;
 import aufgabe4.braitenbergvehikel.BraitenbergVehikel;
@@ -28,7 +29,17 @@ public class BVCanvas extends Canvas implements Observer {
    */
   private Image bvImage =
       new Image("aufgabe4/assets/braitenberg_vehikel.png");
-
+  
+  /**
+   * 4.5
+   * Image laden pfeile
+   */
+  private Image abImage =
+      new Image("aufgabe4/assets/icon_abstossung.png");
+  
+  private Image atImage =
+      new Image("aufgabe4/assets/icon_attraktion.png");
+  
   /**
    * Referenz auf die Simulation.
    */
@@ -45,7 +56,7 @@ public class BVCanvas extends Canvas implements Observer {
   public void zeichneSimulation() {
     GraphicsContext gc = getGraphicsContext2D();
     // Alles löschen
-    gc.setFill(Color.RED);
+    gc.setFill(Color.WHITE);
     gc.fillRect(0, 0, getWidth(), getHeight());
     // Vehikel zeichnen
     for (int i = 0; i < sim.getAnzahlVehike(); i++) {
@@ -77,24 +88,49 @@ public class BVCanvas extends Canvas implements Observer {
    * Zeichnet ein Bild gedreht.
    */
   private void zeichneGedrehtesBild(GraphicsContext gc, Image image,
-      double winkel, double x, double y) {
+      Image image1,String text,double winkel, double x, double y) {
     // Zustand auf dem Stack sichern
     gc.save();
     rotieren(gc, winkel, x + image.getWidth() / 2, y + image.getHeight() / 2);
     gc.drawImage(image, x, y);
+    gc.drawImage(image1, x-50, y);    
+    gc.strokeText(text, x-50, y);
     // Zustand wiederherstellen
     gc.restore();
   }
+  
+  /**
+   * 4.5
+   */
+  
+  private void zeichneAnOderAb(GraphicsContext gc, String text, Image image, double winkel, double x, double y){
+ // Zustand auf dem Stack sichern
+    gc.save();
+    gc.drawImage(image, x, y);    
+    gc.strokeText(text, x, y);
+    rotieren(gc, winkel, x + image.getWidth() / 2, y + image.getHeight() / 2);
+    // Zustand wiederherstellen
+    gc.restore();
+  }
+  
+  
 
   /**
    * Zeichnet ein Braitenberg-Vehikel.
    */
   protected void zeichneVehikel(GraphicsContext gc, BraitenbergVehikel bv) {
+    String nametxt=bv.getName();
     Point p = welt2BildKoordinaten(bv.getPosition());
     double winkelInGrad = bv.getRotationGradImUhrzeigersinn();
     int x = (int) (p.x - bv.getSeitenlaenge() / 2);
     int y = (int) (p.y - bv.getSeitenlaenge() / 2);
-    zeichneGedrehtesBild(gc, bvImage, winkelInGrad, x, y);
+    
+    if(bv.getBewegung().getId().equals("ATTRAKTION")){
+      zeichneGedrehtesBild(gc, bvImage,atImage,nametxt, winkelInGrad, x, y);
+    }else{
+      zeichneGedrehtesBild(gc, bvImage,abImage,nametxt, winkelInGrad, x, y);
+    }
+    
   }
 
   /**

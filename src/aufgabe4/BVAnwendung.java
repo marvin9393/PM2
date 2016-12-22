@@ -6,6 +6,8 @@
 package aufgabe4;
 
 import javafx.application.Application;
+
+
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -27,6 +29,8 @@ import javafx.stage.Stage;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import aufgabe4.braitenbergvehikel.BVBewegung;
+
+import java.awt.event.MouseListener;
 
 import com.sun.javafx.scene.paint.GradientUtils.Point;
 import com.sun.xml.internal.ws.server.provider.AsyncProviderInvokerTube.FiberResumer;
@@ -69,6 +73,23 @@ public class BVAnwendung extends Application {
     primaryStage.setScene(new Scene(wurzel, 850, 600));
     primaryStage.show();
 
+    /**
+     * 4.4 Mouse event
+     */
+    canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+      @Override
+      public void handle(MouseEvent event) {
+        
+        {
+          sim.setSignal(event.getX() - (canvas.getWidth() / 2),
+              (canvas.getHeight() / 2) - event.getY());
+        
+        
+        }
+      }
+      
+    });
     /**
      * 4.1 Pane gesetzt und an der rechten seite der boarder pane hinzugefügt.
      */
@@ -191,21 +212,7 @@ public class BVAnwendung extends Application {
       }
     });
 
-    //check.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
-//      @Override
-//      public void handle(MouseEvent event) {
-//        if (!sim.getVehikel(0).getPosition().equals(sim.getSignal())&&check.isSelected()) {
-//          sim.start();
-//          
-//        } else{
-//          sim.getVehikel(0).setPosition(sim.getVehikel(0).getPosition());
-//          sim.getVehikel(1).setPosition(sim.getVehikel(1).getPosition());
-//          
-//        }
-//      }
-//
-//    });
 
     /**
      * 4.2 alle autos sagen wer der observer ist.
@@ -219,6 +226,7 @@ public class BVAnwendung extends Application {
      * 4.2sim sagen das er vom canvas beobachtet wird
      */
     sim.addObserver(canvas);
+    
     
 
     check.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -250,19 +258,12 @@ public class BVAnwendung extends Application {
       }
       
     });
-    EventHandler<MouseEvent> mousevent =new EventHandler<MouseEvent>() {
-
-      @Override
-      public void handle(MouseEvent event) {
     
-        
-      }
-    };
   }
     
    
 
-    
+  
     
     
     
