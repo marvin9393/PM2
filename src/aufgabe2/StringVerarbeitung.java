@@ -7,7 +7,9 @@ package aufgabe2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -25,7 +27,7 @@ public class StringVerarbeitung<T> {
   public String[] stringArray = new String[0];
   private int anzahlStrings;
 
-  private List<T> stringList = new ArrayList<T>();
+  private List<T> stringListe = new ArrayList<T>();
 
   // Eingabe mit Scanner
   //
@@ -50,6 +52,14 @@ public class StringVerarbeitung<T> {
     for (String eingabe : wort)
       speichernVonWoertern(eingabe);
     verarbeiten();
+    
+    ArrayList<String> list = (ArrayList<String>) stringListe;
+    Iterator listIterator = list.listIterator();
+    while(listIterator.hasNext()) {
+            System.out.println(listIterator.next());
+    }
+    
+    
   }
 
   public void verarbeiten() {
@@ -61,6 +71,7 @@ public class StringVerarbeitung<T> {
       return true;
 
     };
+
     Function<String, String> achtStellen = wort -> {
       if (wort.length() >= 8) {
         wort = wort.substring(0, 8);
@@ -80,7 +91,7 @@ public class StringVerarbeitung<T> {
     Stream<String> stringVerarbeitung = Arrays.stream(stringArray);
     stringVerarbeitung.filter(nichtNull).map(String::trim)
         .map(String::toUpperCase).map(umlauteEntfernen).map(achtStellen)
-        .forEach(wort -> stringList.add((T) wort));
+        .forEach(wort -> stringListe.add((T) wort));
     ;
   }
 
@@ -100,8 +111,9 @@ public class StringVerarbeitung<T> {
   public static void main(String[] args) {
     StringVerarbeitung string = new StringVerarbeitung("Eingabe ", "Äußeres ",
         null, "Strassen-Feger", " ein Haus");
+    System.out.println(string.stringListe + "");
+    
 
-    System.out.println(string.stringList + "");
   }
 
 }
